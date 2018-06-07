@@ -9,8 +9,8 @@ const App = () => (
   <div className='App'>
     <Navigation/>
     <div>
-      <h1>testiiing</h1>
-      <p>??? adadadlsodadsdasda blah blah.</p>
+      <h1>dadsda</h1>
+      <p>??? alsodadsdasda blah blah.</p>
     </div>
   </div>
 );
