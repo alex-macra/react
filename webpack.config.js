@@ -18,8 +18,7 @@ module.exports = {
     'core-js/fn/promise',
     'core-js/es6/object',
     'core-js/es6/array',
-
-    './src.1/index.jsx', // your app's entry point
+    
     './src/index.jsx'
   ],
   devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
@@ -34,7 +33,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [
-      path.join(__dirname, "src.1"),
+      path.join(__dirname, "src"),
       path.join(__dirname, "src"),
       path.join(__dirname, "node_modules"), // the old 'fallback' option (needed for npm link-ed packages)
     ],
