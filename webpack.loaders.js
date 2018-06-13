@@ -9,8 +9,7 @@ const sassIncludePaths = [
 
 // These files will be imported in every sass file
 const sassResourcesPaths = [
-  path.resolve(__dirname, 'styles/abstracts/_variables.sass'),
-  path.resolve(__dirname, 'styles/abstracts/_mixins.sass'),
+  path.resolve(__dirname, '../sass/main.scss'),
 ];
 
 // noinspection WebpackConfigHighlighting
