@@ -19,7 +19,7 @@ module.exports = {
     'core-js/es6/object',
     'core-js/es6/array',
     
-    './src/index.jsx'
+    './src/index.tsx'
   ],
   devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
   output: {
@@ -31,7 +31,7 @@ module.exports = {
     rules: loadersConf
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     modules: [
       path.join(__dirname, "src"),
       path.join(__dirname, "src"),
