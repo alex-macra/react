@@ -2,7 +2,6 @@ import React from "react";
 import Navigation from "./Navigation";
 const Test: any = () => (
   <div className="testPage">
-    <Navigation/>
     <div>
     <button type="button" className="primary">primary button</button>
  <button type="button" className="secondary">secondary button</button>

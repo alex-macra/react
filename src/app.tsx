@@ -7,7 +7,6 @@ import "styles/base/_common.sass";  // global styles
 
 const App: any = () => (
   <div className="App">
-    <Navigation/>
     <div>
       <h1>testiiing</h1>
       <p>??? adadadlsodadsdasda blah blah.</p>
