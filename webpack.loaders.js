@@ -31,6 +31,18 @@ module.exports = [
       plugins: ['react-hot-loader/babel'],
     }
   },
+  {
+      test: /\.tsx?$/,
+      include: path.resolve(__dirname, 'src'),
+      use: [
+          {
+              loader: "babel-loader"
+          },
+          {
+              loader: "ts-loader"
+          }
+      ]
+  },
   // =========
   // = Fonts =
   // =========
