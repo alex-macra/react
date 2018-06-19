@@ -12,13 +12,10 @@ const PORT = process.env.PORT || "8888";
 
 module.exports = {
   entry: [
-    // POLYFILL: Set up an ES6-ish environment
-    // 'babel-polyfill',  // The entire babel-polyfill
-    // Or pick es6 features needed (included into babel-polyfill)
     'core-js/fn/promise',
     'core-js/es6/object',
     'core-js/es6/array',
-    
+
     './src/index.tsx'
   ],
   devtool: process.env.WEBPACK_DEVTOOL || 'eval-source-map',
@@ -35,7 +32,7 @@ module.exports = {
     modules: [
       path.join(__dirname, "src"),
       path.join(__dirname, "src"),
-      path.join(__dirname, "node_modules"), // the old 'fallback' option (needed for npm link-ed packages)
+      path.join(__dirname, "node_modules"),
     ],
     alias: {
       "styles": path.resolve(__dirname, 'styles/'),
@@ -43,13 +40,9 @@ module.exports = {
   },
   devServer: {
     contentBase: "./public",
-    // do not print bundle build stats
     noInfo: true,
-    // enable HMR
     hot: true,
-    // embed the webpack-dev-server runtime into the bundle
     inline: true,
-    // serve index.html in place of 404 responses to allow HTML5 history
     historyApiFallback: true,
     port: PORT,
     host: HOST
@@ -67,7 +60,7 @@ module.exports = {
       template: './src/template.html',
       files: {
         css: ['style.css'],
-        js: [ "bundle.js"],
+        js: ["bundle.js"],
       }
     }),
   ]

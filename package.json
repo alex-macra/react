@@ -1,7 +1,7 @@
 {
   "name": "accesa-react-starter",
-  "version": "0.0.5",
-  "description": "React starter Kit",
+  "version": "0.7.5",
+  "description": "React starter package",
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",

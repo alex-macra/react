@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {AppContainer} from "react-hot-loader";
+import { AppContainer } from "react-hot-loader";
 import Routes from "./routes";
-import Navigation from './components/Navigation';
+import Navigation from './components/navigation/Navigation';
 
 const renderApp: any = (Component) => {
   ReactDOM.render(
     <AppContainer>
-      <Component/>
+      <Component />
     </AppContainer>,
     document.getElementById("app")
   );

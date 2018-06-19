@@ -8,7 +8,7 @@
         "allowJs": false,
         "moduleResolution": "node",
         "lib": [
-            "dom", 
+            "dom",
             "es7"
         ]
     }
