@@ -49,7 +49,7 @@ n/a
 ## Authors
 
 * [Septimiu Chiorean](https://github.com/septimiuchiorean)
-* [Alexandru Macra](https://github.com/alexandrumacra)
+* [Alexandru Macra](https://github.com/alex-macra)
 
 ## License
 
