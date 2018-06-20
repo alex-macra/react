@@ -47,26 +47,28 @@ class LoginForm extends Component<LoginFormProps,LoginFormState> {
     render() {
         return (
             <form>
-                <div className="acc-form">
-                    <label>{this.props.usernameLabel || this.state.usernameLabel}</label>
-                    <input 
-                        type="text"
-                        placeholder={
-                            this.props.usernamePlaceholder || 
-                            this.state.usernamePlaceholder
-                        } 
-                    />
-                    <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
-                    <input 
-                        type="text" 
-                        placeholder={
-                            this.props.passwordPlaceholder ||
-                            this.state.passwordPlaceholder
+                <div className="acc-default-form">
+                    <div className="acc-form">
+                        <label>{this.props.usernameLabel || this.state.usernameLabel}</label>
+                        <input 
+                            type="text"
+                            placeholder={
+                                this.props.usernamePlaceholder || 
+                                this.state.usernamePlaceholder
+                            } 
+                        />
+                        <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
+                        <input 
+                            type="text" 
+                            placeholder={
+                                this.props.passwordPlaceholder ||
+                                this.state.passwordPlaceholder
+                            }
+                        />
+                        {
+                            this.renderForgotPassword()
                         }
-                    />
-                    {
-                        this.renderForgotPassword()
-                    }
+                    </div>
                 </div>
             </form>
         );

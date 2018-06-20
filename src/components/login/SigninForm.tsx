@@ -46,7 +46,7 @@ class SigninForm extends Component<SigninFormProps,SigninFormState> {
 
     renderSignInForm = () => {
         return (
-            <div className="acc-form">
+            <div className="acc-default-form">
                 <button 
                     type="button" 
                     className="primary" 
