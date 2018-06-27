@@ -58,7 +58,7 @@ class LoginForm extends Component<LoginFormProps,LoginFormState> {
             (this.props.forgotPasswordEnabled === undefined) 
         ) {
             return (
-                <button type="button" className="cancel">
+                <button type="button" className="button cancel">
                     {this.props.forgotPasswordButtonText || this.state.forgotPasswordButtonText}
                 </button>
             );
@@ -75,7 +75,7 @@ class LoginForm extends Component<LoginFormProps,LoginFormState> {
             ) {
                 return (
                     <button 
-                        className="cancel"
+                        className="button cancel"
                         onClick={() => this.props.back()}
                     >
                         {this.props.backButtonText || this.state.backButtonText}

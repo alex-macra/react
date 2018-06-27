@@ -137,7 +137,7 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
                                 this.state.phoneNumberPlaceholder
                             }
                         />
-                        <button type="submit" className="primary">
+                        <button type="submit" className="button primary">
                             {this.props.registerButtonText || this.state.registerButtonText}
                         </button>
                     </div>

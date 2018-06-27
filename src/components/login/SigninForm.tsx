@@ -89,7 +89,7 @@ class SigninForm extends Component<SigninFormProps,SigninFormState> {
             <div className="acc-default-form">
                 <button 
                     type="button" 
-                    className="primary" 
+                    className="button primary" 
                     value={forms.logIn}
                     onClick={(e: any) => this.switchForm(e)}
                 >
@@ -101,7 +101,7 @@ class SigninForm extends Component<SigninFormProps,SigninFormState> {
                 <br />
                 <button 
                     type="button" 
-                    className="secondary"
+                    className="button secondary"
                     value={forms.singUp}
                     onClick={(e: any) => this.switchForm(e)}
                 >
