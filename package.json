@@ -1,6 +1,6 @@
 {
   "name": "accesa-react-starter",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "React starter package",
   "main": "''",
   "scripts": {
@@ -15,14 +15,15 @@
     "type": "git"
   },
   "dependencies": {
-    "babel-polyfill": "6.26.0",
-    "normalize.css": "^7.0.0",
-    "typescript": "^2.9.2",
     "@types/react-router-dom": "^4.2.7",
+    "babel-polyfill": "6.26.0",
+    "font-awesome": "^4.7.0",
+    "normalize.css": "^7.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts-ts": "2.16.0"
+    "react-scripts-ts": "2.16.0",
+    "typescript": "^2.9.2"
   },
   "devDependencies": {
     "@types/node": "^10.3.3",
@@ -65,7 +66,7 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-cleanup-plugin": "^0.5.1",
-    "webpack-dashboard": "^1.0.2",
+    "webpack-dashboard": "^2.0.0",
     "webpack-dev-server": "^2.9.4"
   }
 }
