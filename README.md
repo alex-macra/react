@@ -1,10 +1,14 @@
 # ACCESA REACT START
 
-React starter pack.
+<img align="center" alt="accesa design system logo" src="https://cdn.rawgit.com/alex-macra/accesa-design-system/dev/styleguide/img/logo.png" width="100">
 
 Current version: 0.7.6,
 
 Upcoming version: 1.0.0-RC1
+
+## What is it?
+
+It's a react starter pack with the usual local server, webpack build process, but that also contain some components. (header, login component, etc).
 
 ## Getting Started
 
