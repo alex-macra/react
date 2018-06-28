@@ -1,5 +1,5 @@
 import React from "react";
-import "styles/base/_main.scss";
+import "styles/_main.scss";
 
 const App: any = () => (
   <div className="acc-testing-app-wrapper">
