@@ -134,7 +134,8 @@ class ModalSelector extends Component<ModalSelectorProps, ModalSelectorState> {
 
     render() {
         return (
-            <div>
+            <div className="acc-default-container flexible">
+                <h1>Modal</h1>
                 <div className="acc-form">
                     <label htmlFor="select">Modal Type</label>
                     <select id="select" name="modalType" onChange={(e: any) => this.handleChange(e)}>
@@ -145,7 +146,7 @@ class ModalSelector extends Component<ModalSelectorProps, ModalSelectorState> {
                 { this.renderModalOptions() }
                 { this.renderTextModal() }
                 { this.renderComponentModal() }
-                <button type="submit" className="primary" onClick={() => this.displayModal()}>
+                <button type="submit" className="acc-button primary" onClick={() => this.displayModal()}>
                     Display Dialog
                 </button>
             </div>

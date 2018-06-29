@@ -1,12 +1,9 @@
 import React from "react";
-import "styles/base/_main.sass";
+import "styles/_main.scss";
 
 const App: any = () => (
-  <div className="acc-testing-app-wrapper">
-    <div>
+  <div className="acc-default-container">
       <h1>Homepage</h1>
-   
-    </div>
   </div>
 );
 

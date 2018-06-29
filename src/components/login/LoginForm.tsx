@@ -58,7 +58,7 @@ class LoginForm extends Component<LoginFormProps,LoginFormState> {
             (this.props.forgotPasswordEnabled === undefined) 
         ) {
             return (
-                <button type="button" className="cancel">
+                <button type="button" className="acc-button cancel">
                     {this.props.forgotPasswordButtonText || this.state.forgotPasswordButtonText}
                 </button>
             );
@@ -75,7 +75,7 @@ class LoginForm extends Component<LoginFormProps,LoginFormState> {
             ) {
                 return (
                     <button 
-                        className="cancel"
+                        className="acc-button back cancel"
                         onClick={() => this.props.back()}
                     >
                         {this.props.backButtonText || this.state.backButtonText}
@@ -103,39 +103,46 @@ class LoginForm extends Component<LoginFormProps,LoginFormState> {
 
     render() {
         return (
-            <form name="login-form" onSubmit={this.handleSubmit}>
-                <div className="acc-default-form">
-                    <div className="acc-form" style={{marginLeft: "2em"}}>
-                        <label>{this.props.usernameLabel || this.state.usernameLabel}</label>
-                        <input 
-                            type="text"
-                            name="username"
-                            onChange={(e: any) => this.handleChange(e)}
-                            placeholder={
-                                this.props.usernamePlaceholder || 
-                                this.state.usernamePlaceholder
-                            } 
-                        />
-                        <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
-                        <input 
-                            type="password" 
-                            name="password"
-                            onChange={(e: any) => this.handleChange(e)}
-                            placeholder={
-                                this.props.passwordPlaceholder ||
-                                this.state.passwordPlaceholder
-                            }
-                        />
-                        <button type="submit" className="primary">
-                            {this.props.loginButtonText || this.state.loginButtonText}
-                        </button>
-                    </div>
+            <form name="login-form" onSubmit={this.handleSubmit}>              
+                <div className="acc-default-container half flexible">
+                <h1>Log in</h1>
                     {
                         this.renderBackButton()
                     }
-                    {
-                        this.renderForgotPassword()
-                    }
+                    <div className="acc-form-container">
+                        <div className="acc-form-inline">
+                            <label>{this.props.usernameLabel || this.state.usernameLabel}</label>
+                            <input 
+                                type="text"
+                                name="username"
+                                onChange={(e: any) => this.handleChange(e)}
+                                placeholder={
+                                    this.props.usernamePlaceholder || 
+                                    this.state.usernamePlaceholder
+                                } 
+                            />
+                        </div>
+                        <div className="acc-form-inline">
+                            <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
+                            <input 
+                                type="password" 
+                                name="password"
+                                onChange={(e: any) => this.handleChange(e)}
+                                placeholder={
+                                    this.props.passwordPlaceholder ||
+                                    this.state.passwordPlaceholder
+                                }
+                            />           
+                        </div>
+                    </div>
+                    <div className="acc-center-align">
+                    <button type="submit" className="acc-button primary">
+                            {this.props.loginButtonText || this.state.loginButtonText}
+                        </button>                   
+                        {
+                            this.renderForgotPassword()
+                        }
+                    </div>                   
                 </div>
             </form>
         );

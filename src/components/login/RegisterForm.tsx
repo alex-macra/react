@@ -98,7 +98,7 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
         ) {
             return (
                 <button 
-                    className="cancel"
+                    className="acc-button back cancel"
                     onClick={() => this.props.back()}
                 >
                     {this.props.backButtonText || this.state.backButtonText}
@@ -139,56 +139,69 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
     render() {
         return (
             <form name="login-form" onSubmit={this.handleSubmit}>
-                <div className="acc-default-form">
-                    <div className="acc-form" style={{marginLeft: "2em"}}>
-                        <label>{this.props.usernameLabel || this.state.usernameLabel}</label>
-                        <input 
-                            type="text"
-                            name="username"
-                            onChange={(e: any) => this.handleChange(e)}
-                            placeholder={
-                                this.props.usernamePlaceholder || 
-                                this.state.usernamePlaceholder
-                            } 
-                        />
-                        <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
-                        <input 
-                            type="password" 
-                            name="password"
-                            onChange={(e: any) => this.handleChange(e)}
-                            placeholder={
-                                this.props.passwordPlaceholder ||
-                                this.state.passwordPlaceholder
-                            }
-                        />
-                        <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
-                        <input 
-                            type="password" 
-                            name="rePassword"
-                            onChange={(e: any) => this.handleChange(e)}
-                            placeholder={
-                                this.props.rePasswordPlaceholder ||
-                                this.state.rePasswordPlaceholder
-                            }
-                        />
-                        <label>{this.props.phoneNumberLabel || this.state.phoneNumberLabel}</label>
-                        <input 
-                            type="text" 
-                            name="phoneNumber"
-                            onChange={(e: any) => this.handleChange(e)}
-                            placeholder={
-                                this.props.phoneNumberPlaceholder ||
-                                this.state.phoneNumberPlaceholder
-                            }
-                        />
-                        {this.renderDropdownList()}
-                        <button type="submit" className="primary">
-                            {this.props.registerButtonText || this.state.registerButtonText}
-                        </button>
-                    </div>
-                    {
+                <div className="acc-default-container half flexible">
+                     <h1>Register</h1>
+                     {
                         this.renderBackButton()
-                    }
+                    }  
+                     <div className="acc-form-container">
+                        <div className="acc-form-inline">
+                            <label>{this.props.usernameLabel || this.state.usernameLabel}</label>
+                            <input 
+                                type="text"
+                                name="username"
+                                onChange={(e: any) => this.handleChange(e)}
+                                placeholder={
+                                    this.props.usernamePlaceholder || 
+                                    this.state.usernamePlaceholder
+                                } 
+                            />
+                        </div>
+                        <div className="acc-form-inline">
+                            <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
+                            <input 
+                                type="password" 
+                                name="password"
+                                onChange={(e: any) => this.handleChange(e)}
+                                placeholder={
+                                    this.props.passwordPlaceholder ||
+                                    this.state.passwordPlaceholder
+                                }
+                            />
+                        </div>
+                         <div className="acc-form-inline">
+                            <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
+                            <input 
+                                type="password" 
+                                name="rePassword"
+                                onChange={(e: any) => this.handleChange(e)}
+                                placeholder={
+                                    this.props.rePasswordPlaceholder ||
+                                    this.state.rePasswordPlaceholder
+                                }
+                            />
+                        </div>
+                        <div className="acc-form-inline">
+                            <label>{this.props.phoneNumberLabel || this.state.phoneNumberLabel}</label>
+                            <input 
+                                    type="text" 
+                                    name="phoneNumber"
+                                    onChange={(e: any) => this.handleChange(e)}
+                                    placeholder={
+                                        this.props.phoneNumberPlaceholder ||
+                                        this.state.phoneNumberPlaceholder
+                                    }
+                            />
+                        </div>
+
+                            {this.renderDropdownList()}
+
+                            <div className="acc-center-align">
+                                <button type="submit" className="acc-button primary">
+                                    {this.props.registerButtonText || this.state.registerButtonText}
+                                </button>
+                            </div>
+                    </div>                                     
                 </div>
             </form>
         );

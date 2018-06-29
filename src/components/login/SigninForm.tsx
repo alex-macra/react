@@ -28,11 +28,11 @@ class SigninForm extends Component<SigninFormProps,SigninFormState> {
 
     getLoginFormOptions = () => {
         let options: LoginFormProps = {
-            passwordLabel: 'Baga parola:',
-            usernamePlaceholder: 'Scrie aici',
+            passwordLabel: 'Password',
+            usernamePlaceholder: 'Username',
             forgotPasswordEnabled: true,
             backButtonEnabled: true,
-            backButtonText: 'Inapoi',
+            backButtonText: 'Back',
             back: () => this.onGoBack(),
             onSubmit: (e: any) => this.handleLogin(e)
         }
@@ -88,27 +88,31 @@ class SigninForm extends Component<SigninFormProps,SigninFormState> {
 
     renderSignInForm = () => {
         return (
-            <div className="acc-default-form">
-                <button 
-                    type="button" 
-                    className="primary" 
-                    value={forms.logIn}
-                    onClick={(e: any) => this.switchForm(e)}
-                >
-                    {
-                        this.state.loginButtonText ||
-                        this.props.loginButtonText
-                    }
-                </button>
-                <br />
-                <button 
-                    type="button" 
-                    className="secondary"
-                    value={forms.singUp}
-                    onClick={(e: any) => this.switchForm(e)}
-                >
-                    {this.props.singupButtonText || this.state.singupButtonText}
-                </button>
+            <div className="acc-default-container half flexible centered">
+                <h1>Sign in</h1>
+                <div className="acc-form-container">
+                    <div className="acc-center-align">
+                        <button 
+                            type="button" 
+                            className="acc-button primary" 
+                            value={forms.logIn}
+                            onClick={(e: any) => this.switchForm(e)}
+                        >
+                            {
+                                this.state.loginButtonText ||
+                                this.props.loginButtonText
+                            }
+                        </button>
+                        <button 
+                            type="button" 
+                            className="acc-button secondary"
+                            value={forms.singUp}
+                            onClick={(e: any) => this.switchForm(e)}
+                        >
+                            {this.props.singupButtonText || this.state.singupButtonText}
+                        </button>
+                    </div> 
+                </div>              
             </div>
         );
     }
