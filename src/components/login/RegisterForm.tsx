@@ -11,6 +11,9 @@ export interface RegisterFormProps {
     backButtonEnabled?: boolean;
     backButtonText?: string;
     registerButtonText?: string;
+    showDropdown?: boolean;
+    dropdownOptions?: DropdownOptions[];
+    dropdownLabel?: string;
     back?(): void;
     onSubmit?(credentials: RegisterCredentials): void;
 }
@@ -20,6 +23,12 @@ export interface RegisterCredentials {
     password: string;
     rePassword: string;
     phoneNumber: string;
+    dropdownValue?: string;
+}
+
+interface DropdownOptions {
+    value: string;
+    text: string;
 }
 
 interface RegisterFormState {
@@ -36,6 +45,9 @@ interface RegisterFormState {
     phoneNumberPlaceholder: string;
     backButtonText: string;
     registerButtonText: string;
+    showDropdown: boolean;
+    dropdownLabel: string;
+    selectedValue: string;
 }
 
 class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
@@ -45,6 +57,7 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
         password: '',
         rePassword: '',
         phoneNumber: '',
+        selectedValue: '',
         usernameLabel: 'Email/Username',
         passwordLabel: 'Password',
         phoneNumberLabel: 'Phone No',
@@ -53,7 +66,9 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
         rePasswordPlaceholder: 'Re-enter password',
         phoneNumberPlaceholder: 'Enter Phone Number',
         backButtonText: 'Go Back',
-        registerButtonText: 'Register'
+        registerButtonText: 'Register',
+        showDropdown: false,
+        dropdownLabel: 'Label'
     }
 
     handleChange = (e: any) => {
@@ -68,6 +83,9 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
             password: this.state.password,
             rePassword: this.state.rePassword,
             phoneNumber: this.state.phoneNumber
+        }
+        if (this.state.selectedValue !== '') {
+            credentials.dropdownValue = this.state.selectedValue
         }
         this.props.onSubmit(credentials);
     }
@@ -90,7 +108,33 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
         else {
             return null;
         }
-}
+    }
+
+    renderDropdownList = () => {
+        return (
+            this.props.showDropdown === true &&
+            this.props.dropdownOptions !== undefined ? 
+            <div>
+                <label htmlFor="select">{this.props.dropdownLabel || this.state.dropdownLabel}</label>
+                <select id="select" name="selectedValue">
+                    { this.renderDropdownOptions() }
+                </select>
+            </div> :
+            <div />
+        );
+    }
+
+    renderDropdownOptions = () => {
+        return (
+            this.props.dropdownOptions !== undefined ? 
+            this.props.dropdownOptions.map((option: DropdownOptions) => {
+                return (
+                    <option value={option.value}>{option.text}</option>
+                );
+            }) :
+            null
+        );
+    }
 
     render() {
         return (
@@ -137,6 +181,7 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
                                 this.state.phoneNumberPlaceholder
                             }
                         />
+                        {this.renderDropdownList()}
                         <button type="submit" className="primary">
                             {this.props.registerButtonText || this.state.registerButtonText}
                         </button>

@@ -20,7 +20,7 @@ interface SigninFormState {
 
 class SigninForm extends Component<SigninFormProps,SigninFormState> {
 
-    state = {
+    state: SigninFormState = {
         loginButtonText: 'Log In',
         singupButtonText: 'Sign Up',
         displayForm: forms.signIn
@@ -42,7 +42,9 @@ class SigninForm extends Component<SigninFormProps,SigninFormState> {
     getRegisterFormOptions = () => {
         let options: RegisterFormProps = {
             back: () => this.onGoBack(),
-            onSubmit: (e: any) => this.handleRegister(e)
+            onSubmit: (e: any) => this.handleRegister(e),
+            showDropdown: false,
+            dropdownOptions: [{value: 'option1', text: 'option1'},{value: 'option2', text: 'option2'}]
         };
         return options;
     }
