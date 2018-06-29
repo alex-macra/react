@@ -7,8 +7,6 @@ import App from "./app";
 import SigninForm from './components/login/SigninForm';
 import Navigation from './components/navigation/Navigation';
 
-const test = null;
-
 const Routes: any = () => (
   <Router>
     <div>
