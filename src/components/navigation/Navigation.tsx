@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const Navigation: any = () => ( //this will be moved
-  <header className="acc-main-nav sticky">
+  <header className="acc-main-header sticky">
       <div className="acc-logo">
         <Link to="/">Logo</Link>
       </div>

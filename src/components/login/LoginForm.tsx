@@ -104,36 +104,38 @@ class LoginForm extends Component<LoginFormProps,LoginFormState> {
     render() {
         return (
             <form name="login-form" onSubmit={this.handleSubmit}>              
-                <div className="acc-default-container flexible">
+                <div className="acc-default-container half flexible">
                 <h1>Log in</h1>
                     {
                         this.renderBackButton()
                     }
-                    <div className="acc-form-inline">
-                        <label>{this.props.usernameLabel || this.state.usernameLabel}</label>
-                        <input 
-                            type="text"
-                            name="username"
-                            onChange={(e: any) => this.handleChange(e)}
-                            placeholder={
-                                this.props.usernamePlaceholder || 
-                                this.state.usernamePlaceholder
-                            } 
-                        />
+                    <div className="acc-form-container">
+                        <div className="acc-form-inline">
+                            <label>{this.props.usernameLabel || this.state.usernameLabel}</label>
+                            <input 
+                                type="text"
+                                name="username"
+                                onChange={(e: any) => this.handleChange(e)}
+                                placeholder={
+                                    this.props.usernamePlaceholder || 
+                                    this.state.usernamePlaceholder
+                                } 
+                            />
+                        </div>
+                        <div className="acc-form-inline">
+                            <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
+                            <input 
+                                type="password" 
+                                name="password"
+                                onChange={(e: any) => this.handleChange(e)}
+                                placeholder={
+                                    this.props.passwordPlaceholder ||
+                                    this.state.passwordPlaceholder
+                                }
+                            />           
+                        </div>
                     </div>
-                    <div className="acc-form-inline">
-                        <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
-                        <input 
-                            type="password" 
-                            name="password"
-                            onChange={(e: any) => this.handleChange(e)}
-                            placeholder={
-                                this.props.passwordPlaceholder ||
-                                this.state.passwordPlaceholder
-                            }
-                        />           
-                    </div>
-                    <div className="acc-bottom-align">
+                    <div className="acc-center-align">
                     <button type="submit" className="acc-button primary">
                             {this.props.loginButtonText || this.state.loginButtonText}
                         </button>                   
