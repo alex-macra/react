@@ -80,7 +80,7 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
         ) {
             return (
                 <button 
-                    className="cancel"
+                    className="acc-button back cancel"
                     onClick={() => this.props.back()}
                 >
                     {this.props.backButtonText || this.state.backButtonText}
@@ -95,8 +95,12 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
     render() {
         return (
             <form name="login-form" onSubmit={this.handleSubmit}>
-                <div className="acc-default-form">
-                    <div className="acc-form" style={{marginLeft: "2em"}}>
+                <div className="acc-default-container flexible">
+                <h1>Register</h1>
+                    {
+                        this.renderBackButton()
+                    }
+                    <div className="acc-form-inline">
                         <label>{this.props.usernameLabel || this.state.usernameLabel}</label>
                         <input 
                             type="text"
@@ -107,6 +111,8 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
                                 this.state.usernamePlaceholder
                             } 
                         />
+                    </div>
+                    <div className="acc-form-inline">
                         <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
                         <input 
                             type="password" 
@@ -117,6 +123,8 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
                                 this.state.passwordPlaceholder
                             }
                         />
+                    </div>
+                    <div className="acc-form-inline">
                         <label>{this.props.passwordLabel || this.state.passwordLabel}</label>
                         <input 
                             type="password" 
@@ -127,6 +135,8 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
                                 this.state.rePasswordPlaceholder
                             }
                         />
+                    </div>
+                    <div className="acc-form-inline">
                         <label>{this.props.phoneNumberLabel || this.state.phoneNumberLabel}</label>
                         <input 
                             type="text" 
@@ -137,13 +147,12 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
                                 this.state.phoneNumberPlaceholder
                             }
                         />
-                        <button type="submit" className="button primary">
-                            {this.props.registerButtonText || this.state.registerButtonText}
-                        </button>
                     </div>
-                    {
-                        this.renderBackButton()
-                    }
+                    <div className="acc-bottom-align"> 
+                        <button type="submit" className="acc-button primary">
+                            {this.props.registerButtonText || this.state.registerButtonText}
+                        </button>                                
+                    </div>
                 </div>
             </form>
         );

@@ -50,6 +50,20 @@ module.exports = [
         loader: "style-loader",
       },
       {
+        loader: "css-loader",
+        options: {
+          sourceMap: true,
+          camelCase: "dashes",
+          importLoaders: 1
+        }
+      },
+      {
+        loader: "postcss-loader",
+        options: {
+          sourceMap: "inline",
+        }
+      },
+      {
         loader: "sass-loader",
         options: {
           sourceMap: true,
@@ -63,21 +77,7 @@ module.exports = [
         options: {
           resources: sassResourcesPaths
         }
-      },
-    //  {
-    //    loader: "css-loader",
-      //  options: {
-     //     sourceMap: true,
-   //       camelCase: "dashes",
-    //      importLoaders: 1
-    //    }
-   //   },
-   //   {
-     //   loader: "postcss-loader",
-      //  options: {
-     //     sourceMap: "inline",
-     //   }
-     // }
+      }
     ]
   }
 ];
