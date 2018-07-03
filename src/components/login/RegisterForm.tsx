@@ -92,9 +92,8 @@ class RegisterForm extends Component<RegisterFormProps,RegisterFormState> {
 
     renderBackButton = () => {
         if (
-            (this.props.backButtonEnabled !== undefined &&
-            this.props.backButtonEnabled === true) ||
-            (this.props.backButtonEnabled === undefined)
+            this.props.backButtonEnabled !== undefined &&
+            this.props.backButtonEnabled === true
         ) {
             return (
                 <button 

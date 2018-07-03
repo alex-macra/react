@@ -6,8 +6,8 @@ import {
 import App from "./app";
 import SigninForm from './components/login/SigninForm';
 import Navigation from './components/navigation/Navigation';
-import ModalComponent from './components/modal/ModalText';
 import ModalSelector from './components/modal/ModalSelector';
+import Tooltip from './components/tooltip/Tooltip';
 
 const Routes: any = () => (
   <Router>
@@ -16,6 +16,7 @@ const Routes: any = () => (
       <Route exact path="/" component={App} />
       <Route path="/signin" component={SigninForm} />
       <Route path="/modal" component={ModalSelector} />
+      <Route path="/tooltip" component={Tooltip} />
     </div>
   </Router>
 );

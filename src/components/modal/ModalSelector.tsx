@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ModalText from './ModalText';
 import ModalComponent from './ModalComponent';
+import LoginForm from '../login/LoginForm';
+import RegisterForm from '../login/RegisterForm';
+import SigninForm from '../login/SigninForm';
 
 interface ModalSelectorProps {
 }
@@ -10,7 +13,7 @@ interface ModalSelectorState {
     text: any;
     buttonText: string;
     modalType: ModalType;
-    htmlCode: string;
+    modalComponent: ModalComponentType;
     modalTextShow: boolean;
     modalComponentShow: boolean;
 }
@@ -20,12 +23,18 @@ enum ModalType {
     component = 1
 }
 
+enum ModalComponentType {
+    login = 0,
+    register = 1,
+    signIn = 2
+}
+
 class ModalSelector extends Component<ModalSelectorProps, ModalSelectorState> {
 
     state: ModalSelectorState = {
         title: '',
         text: '',
-        htmlCode: '',
+        modalComponent: ModalComponentType.signIn,
         buttonText: '',
         modalType: ModalType.text,
         modalTextShow: false,
@@ -35,6 +44,13 @@ class ModalSelector extends Component<ModalSelectorProps, ModalSelectorState> {
     handleChange = (e: any) => {
         let { name, value } = e.target;
         if (name === "modalType") {
+            value = Number(value);
+            this.setState({
+                title: '',
+                text: ''
+            });
+        }
+        if (name === "modalComponent") {
             value = Number(value);
         }
         this.setState({ [name]: value } as any);
@@ -69,8 +85,21 @@ class ModalSelector extends Component<ModalSelectorProps, ModalSelectorState> {
     renderComponentModalOptions = () => {
         return (
             <div className="acc-form">
-               <textarea name="text" rows={10} cols={30} onChange={(e: any) => this.handleChange(e)}/>
-               <div contentEditable={true}>aci</div>
+                <div className="acc-form-inline">
+                    <label>Modal Title</label>
+                    <input 
+                        type="text" 
+                        name="title"
+                        onChange={(e: any) => this.handleChange(e)}
+                        placeholder="Enter Title"
+                />
+                </div>
+                <label htmlFor="select">Choose Component</label>
+                <select id="select" name="modalComponent" onChange={(e: any) => this.handleChange(e)}>
+                    <option value={ModalComponentType.signIn}>Sign In Form</option>
+                    <option value={ModalComponentType.login}>Log In Form</option>
+                    <option value={ModalComponentType.register}>Register Form</option>
+                </select>
             </div>
         );
     }
@@ -89,13 +118,17 @@ class ModalSelector extends Component<ModalSelectorProps, ModalSelectorState> {
         switch (this.state.modalType) {
             case ModalType.text:
                 this.setState ({
-                    modalTextShow: true
+                    modalTextShow: true,
+                    modalComponentShow: false
                 });
+                break;
             case ModalType.component:
                 this.setState({
-                    modalComponentShow: true
-                })
-            default: <div />
+                    modalComponentShow: true,
+                    modalTextShow: false
+                });
+                break;
+            default: return <div />;
         }
     }
 
@@ -118,6 +151,17 @@ class ModalSelector extends Component<ModalSelectorProps, ModalSelectorState> {
         );
     }
 
+    getModalComponent = () => {
+        switch (this.state.modalComponent) {
+            case ModalComponentType.signIn:
+                return <SigninForm />;
+            case ModalComponentType.register:
+                return <RegisterForm />;
+            case ModalComponentType.login:
+                return <LoginForm />
+        }
+    }
+
     renderComponentModal = () => {
         let options = {
             title: this.state.title,
@@ -127,7 +171,7 @@ class ModalSelector extends Component<ModalSelectorProps, ModalSelectorState> {
         }
         return (
             <ModalComponent {...options} >
-                {this.state.text}
+                {this.getModalComponent()}
             </ModalComponent>
         );
     }

@@ -69,9 +69,8 @@ class LoginForm extends Component<LoginFormProps,LoginFormState> {
 
     renderBackButton = () => {
             if (
-                (this.props.backButtonEnabled !== undefined &&
-                this.props.backButtonEnabled === true) ||
-                (this.props.backButtonEnabled === undefined)
+                this.props.backButtonEnabled !== undefined &&
+                this.props.backButtonEnabled === true
             ) {
                 return (
                     <button 

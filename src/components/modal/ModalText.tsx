@@ -24,7 +24,7 @@ class ModalText extends Component<ModalTextProps,ModalTextState> {
 
     render() {
         return (
-            <div className="modal"> 
+            <div className="acc-modal"> 
                Check it
                <input className="modal-open" id="modal-one" type="checkbox" checked={this.props.checked || false} />
                <div className="modal-wrap" aria-hidden="true" role="dialog">
