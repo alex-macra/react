@@ -1,14 +1,8 @@
-# ACCESA REACT START
-
-<img align="center" alt="accesa design system logo" src="https://cdn.rawgit.com/alex-macra/accesa-design-system/dev/styleguide/img/logo.png" width="100">
-
-Current version: 0.7.6,
-
-Upcoming version: 1.0.0-RC1
+# Reactimio
 
 ## What is it?
 
-It's a react starter pack with the usual local server, webpack build process, but that also contain some components. (header, login component, etc).
+It's a react starter pack with the usual local server, webpack build process.
 
 ## Getting Started
 
@@ -40,11 +34,9 @@ Good, now a step by step series of examples that tell you have to get the packag
 
 Start
 ```
-npm install
-```
+npm install reactimio
 
-You will then be prompted to install the Accesa design system. 
-(more details about this...)
+```
 
 ## Contributing
 
