@@ -1,7 +1,7 @@
 # Reactimio
 
 ## What is it?
-
+todo - add again jest
 It's a react starter pack with the usual local server, webpack build process.
 
 ## Getting Started
