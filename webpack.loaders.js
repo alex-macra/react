@@ -51,13 +51,13 @@ module.exports = [
           sourceMap: true,
           outputStyle: "expanded",
           indentedSyntax: "sass",
-          includePaths: path.resolve(__dirname, '../sass/main.scss')
+          includePaths: [path.resolve(__dirname, './styles/_main.scss')]
         }
       },
       {
         loader: "sass-resources-loader",
         options: {
-          resources:  path.resolve(__dirname, '../sass/main.scss')
+          resources: [path.resolve(__dirname, './styles/_main.scss')]
         }
       }
     ]
