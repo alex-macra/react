@@ -1,24 +1,12 @@
 const path = require('path');
 
-const sassIncludePaths = [
-  path.resolve(__dirname, '../sass/main.scss'),
-];
-
-const sassResourcesPaths = [
-  path.resolve(__dirname, '../sass/main.scss'),
-];
-
 module.exports = [
   {
     test: /\.tsx?$/,
     include: path.resolve(__dirname, 'src'),
     use: [
-      {
-        loader: "babel-loader"
-      },
-      {
-        loader: "ts-loader"
-      }
+      { loader: "babel-loader" },
+      { loader: "ts-loader"}
     ]
   },
   {
@@ -26,29 +14,23 @@ module.exports = [
     exclude: path.resolve(__dirname, "node_modules"),
     use: ["file-loader"]
   },
-  {
-    test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/
-    , loader: 'url-loader?limit=100000&name=[name].[ext]'
+  { 
+    test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/, 
+    loader: 'url-loader?limit=100000&name=[name].[ext]'
   },
   {
     test: /\.css/,
     include: path.resolve(__dirname, "node_modules"),
     use: [
-      {
-        loader: "style-loader"
-      },
-      {
-        loader: 'css-loader'
-      }
+      { loader: "style-loader" },
+      { loader: 'css-loader' }
     ]
   },
   {
     test: /\.(sass|scss)$/,
     exclude: path.resolve(__dirname, 'node_modules'),
     use: [
-      {
-        loader: "style-loader",
-      },
+      { loader: "style-loader" },
       {
         loader: "css-loader",
         options: {
@@ -69,13 +51,13 @@ module.exports = [
           sourceMap: true,
           outputStyle: "expanded",
           indentedSyntax: "sass",
-          includePaths: sassIncludePaths
+          includePaths: [path.resolve(__dirname, './styles/_main.scss')]
         }
       },
       {
         loader: "sass-resources-loader",
         options: {
-          resources: sassResourcesPaths
+          resources: [path.resolve(__dirname, './styles/_main.scss')]
         }
       }
     ]
