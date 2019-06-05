@@ -1,0 +1,2867 @@
+@charset "UTF-8";
+/*  CONTENTS
+ 
+  BASE
+  Reset................Globally-impacting file that resets browser inherited stylesheet.
+  Set..................Globally-impacting file that sets default stylesheet values to certain elements.
+ 
+  NUCLIDES
+  Config...............Globally-available variables and config settings.
+  Colors...............Globally-available variables for creating a theme based stylesheet.
+  Mixins...............Useful mixins (Enhancements and helper mixins).
+ 
+  ATOMS
+  Form.................Buttons, inputs, dropdowns. Form elements in general.
+  Icons................todo.
+  Typography...........Contains basic stylesheet for typographic elements such as paragraphs and headings.
+ 
+  MOLECULES //todo
+  STRUCTURES (COMPONENTS)*/
+/* --- BEGIN RESET.CSS --- */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption,
+figure, footer, header, hgroup,
+menu, nav, section {
+  display: block; }
+
+/* --- END RESET.CSS --- */
+/* --- BEGIN BASE.CSS --- */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  html * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  html *::before,
+  html *::after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit; }
+
+body {
+  font-size: 1.6em;
+  line-height: 1.5; }
+
+/* --- END BASE.CSS --- */
+/**
+ * Set a general prefix throughout the entire app using the $prefix variable.
+ * The default namespaces is 'accesa' -> 'acc-'. Want to disable it? Set it to null.
+ *
+ * @nuclide Project prefix
+ * @section Config
+*/
+/**
+ * Set a global border radius that will automatically update throught the entire stylesheet.
+ *
+ * @nuclide Global border radius
+ * @section Config
+*/
+/**
+  * Primary color variable
+  * @color Primary color variable
+  * @section Theme Colors
+*/
+/**
+ * Lighter version of the primary color
+ * @color Lighter primary color variable
+ * @section Theme Colors
+*/
+/**
+ * Darker version of the primary color
+ * @color Darker primary color variable
+ * @section Theme Colors
+*/
+/**
+* @color Secondary color variable
+* @section Theme Colors
+*/
+/**
+* @color Darker version of the secondary color
+* @section Theme Colors
+*/
+/**
+* @color Primary alternate color ('success color')
+* @section Theme Colors
+*/
+/**
+* @color Secondary alternate color ('error color')
+ * @section Theme Colors
+*/
+/**
+* @color White
+* @section Grayscale
+*/
+/**
+* @color Whitesmoke
+* @section Grayscale
+*/
+/**
+* @color Gray color
+* @section Grayscale
+*/
+/**
+* @color Light gray color
+* @section Grayscale
+*/
+/**
+* @color Dark gray color
+* @section Grayscale
+*/
+/**
+* @color Black
+* @section Grayscale
+*/
+/**
+ * Set a general prefix throughout the entire app using the $prefix variable.
+ * The default namespaces is 'accesa' -> 'acc-'. Want to disable it? Set it to null.
+ *
+ * @nuclide Project prefix
+ * @section Config
+*/
+/**
+ * Set a global border radius that will automatically update throught the entire stylesheet.
+ *
+ * @nuclide Global border radius
+ * @section Config
+*/
+/**
+  * Primary color variable
+  * @color Primary color variable
+  * @section Theme Colors
+*/
+/**
+ * Lighter version of the primary color
+ * @color Lighter primary color variable
+ * @section Theme Colors
+*/
+/**
+ * Darker version of the primary color
+ * @color Darker primary color variable
+ * @section Theme Colors
+*/
+/**
+* @color Secondary color variable
+* @section Theme Colors
+*/
+/**
+* @color Darker version of the secondary color
+* @section Theme Colors
+*/
+/**
+* @color Primary alternate color ('success color')
+* @section Theme Colors
+*/
+/**
+* @color Secondary alternate color ('error color')
+ * @section Theme Colors
+*/
+/**
+* @color White
+* @section Grayscale
+*/
+/**
+* @color Whitesmoke
+* @section Grayscale
+*/
+/**
+* @color Gray color
+* @section Grayscale
+*/
+/**
+* @color Light gray color
+* @section Grayscale
+*/
+/**
+* @color Dark gray color
+* @section Grayscale
+*/
+/**
+* @color Black
+* @section Grayscale
+*/
+/**
+ * Set the Lato font face with an optional font weight.
+ *
+ * @mixin
+ * @section Fonts
+ * @param $weight
+ *  The font weight to be used.
+ * @example
+ *  @include lato();
+ *  @include lato(300);
+ */
+/**
+ * Set the "Open Sans" font face with an optional font weight.
+ *
+ * @mixin
+ * @section Fonts
+ * @param $weight
+ *  The font weight to be used.
+ * @example
+ *  @include open-sans();
+ *  @include open-sans(300);
+ */
+.acc-button, .acc-is-button, .acc-button.primary, .primary.acc-is-button, .acc-button.secondary, .secondary.acc-is-button, .acc-button.error, .error.acc-is-button, .acc-button.go, .go.acc-is-button, .acc-button.cancel, .cancel.acc-is-button, .acc-button.disabled, .disabled.acc-is-button, .acc-button[disabled], .acc-is-button[disabled], h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400; }
+
+.acc-form .acc-input[type=text], .acc-form .acc-input[type=password], .acc-form .acc-input[type=email], .acc-form .acc-input[type=number], .acc-form-inline .acc-input[type=text], .acc-form-inline .acc-input[type=password], .acc-form-inline .acc-input[type=email], .acc-form-inline .acc-input[type=number], .acc-form-inline > input[type="text"][type=text], .acc-form-inline > input[type="text"][type=password], .acc-form-inline > input[type="text"][type=email], .acc-form-inline > input[type="text"][type=number], .acc-form-inline > input[type="email"][type=text], .acc-form-inline > input[type="email"][type=password], .acc-form-inline > input[type="email"][type=email], .acc-form-inline > input[type="email"][type=number], .acc-form-inline > input[type="password"][type=text], .acc-form-inline > input[type="password"][type=password], .acc-form-inline > input[type="password"][type=email], .acc-form-inline > input[type="password"][type=number], .acc-form .acc-textarea, .acc-is-quote, .acc-is-code label, p, p span {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400; }
+
+.acc-is-code code {
+  font-family: "Inconsolata", "Monaco", "Consolas", "Andale Mono", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace; }
+
+.acc-icon {
+  font: normal normal normal 14px/1 FontAwesome; }
+
+/**
+ * Breaking points specifically targeting either small screen smartphones,
+ * or all the way up to big desktop screens.
+ * Instead of a pixel approach  we use em's because it's the only unit that
+ * performes consistently across all major browsers.
+ *
+ * @mixin
+ * @section CSS Enhancements
+ * @param $size accepts 'phone-only', 'tablet-portrait-up', 'tablet-landscape-up', 'desktop-up', 'big-desktop-up'
+ * @example
+ *  @include for-size(phone-only);
+*/
+/**
+ * Solution for various scenarios when an image is not loaded yet or at all.
+ *
+ * @mixin
+ * @section CSS Enhancements
+ * @param $image-height define a default image
+ * @example
+ *  @include broken-image(30px)
+*/
+/* --- BEGIN BROKEN-IMAGE.CSS --- */
+.acc-img {
+  display: block;
+  height: auto;
+  line-height: 2;
+  min-height: 60px;
+  position: relative;
+  text-align: center;
+  width: 100%; }
+  .acc-img::before {
+    background-color: #cccccc;
+    border: 2px dotted #646464;
+    border-radius: 0;
+    content: '';
+    display: block;
+    height: calc(100% + 10px);
+    left: 0;
+    position: absolute;
+    top: -10px;
+    width: 100%; }
+  .acc-img::after {
+    color: #313131;
+    content: attr(alt);
+    display: block;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 5px;
+    width: 100%; }
+
+/* --- END BROKEN-IMAGE.CSS --- */
+/**
+ * Clear child elments by fixing thee zero-height container problem.
+ *
+ * @mixin
+ * @section CSS Enhancements
+ * @example
+ *  @include float-clear()
+*/
+/* --- BEGIN CLEAR-FLOAT.CSS --- */
+.acc-clear-float {
+  *zoom: 1; }
+  .acc-clear-float::before, .acc-clear-float::after {
+    content: ' ';
+    display: table; }
+  .acc-clear-float::after {
+    clear: both; }
+
+/* --- END FLOAT-CLEAR.CSS --- */
+/**
+ * Basic text centering horizontally.
+ *
+ * @mixin
+ * @section CSS Enhancements > CSS Positioning
+ * @example 
+ *  @include center-horizontally-text()
+*/
+/**
+ * Basic horizontal centering of an HTML element.
+ *
+ * @mixin
+ * @section CSS Enhancements > CSS Positioning
+ * @example 
+ *  @include center-horizontally()
+*/
+/**
+ * Basic horizontal centering of multiple HTML elements in a row.
+ *
+ * @mixin
+ * @section CSS Enhancements > CSS Positioning
+ * @example 
+ *  @include center-horizontally-multiple-rows-block()
+*/
+/**
+ * Center vertically an element or component, by specifiying it's height.
+ *
+ * @mixin
+ * @section CSS Enhancements > CSS Positioning
+ * @param $height pixel or percentage based height.
+ * @example 
+ *  @include center-vertically-known-height-block(300px)
+*/
+/**
+ * Center vertically an element or component without knowing it's height.
+ *
+ * @mixin
+ * @section CSS Enhancements > CSS Positioning
+ * @example 
+ *  @include center-vertically-unknown-height-block() 
+*/
+/**
+ * Center both vertically and horizontally of an element by specifying with and height.
+ *
+ * @mixin
+ * @section CSS Enhancements > CSS Positioning
+ * @param $width
+ * @param $height
+ * @example 
+ *  @include center-vertically-unknown-height-block() 
+*/
+/**
+ * Center both vertically and horizontally a component without knowing it's height.
+ *
+ * @mixin
+ * @section CSS Enhancements > CSS Positioning
+ * @example 
+ *  @include center-vertically-unknown-height-block() 
+*/
+/**
+ * Center vertically of a component without knowing it's height, and by using flexbox. (Experimental)
+ *
+ * @mixin
+ * @section CSS Enhancements > CSS Positioning
+ * @example 
+ *  @include center-vertically-unknown-height-block() 
+*/
+/**
+ * Center both vertically and horizontally of a component without knowing it's height and by using grid. (Experimental)
+ *
+ * @mixin
+ * @section CSS Enhancements > CSS Positioning
+ * @example 
+ *  @include center-vertically-unknown-height-block() 
+*/
+/* --- BEGIN HEIGHT-CENTERING.CSS --- */
+.acc-text-center {
+  text-align: center; }
+
+/* --- END HEIGHT-CENTERING.CSS --- */
+/**
+ * Hide area by either removing the element from the normal flow of the page, or by leaving it in the page, but keeping it hidden. 
+ *
+ * @mixin
+ * @section CSS Enhancements
+ * @param $visually this variable enables hiding certain HTML element / section, without removing it from the normal flow of the page.
+ * @example
+ *  @include hide();
+ *  @include hide($visually); 
+*/
+/**
+ * Force display of element, making sure that the element is visible.
+ *
+ * @mixin
+ * @section CSS Enhancements
+ * @param $visually
+ * @example
+ *  @include show($visually); 
+ *  @include show(); 
+*/
+/* --- BEGIN HIDE.CSS --- */
+.acc-hide {
+  display: none; }
+
+.acc-hide-visually {
+  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  max-height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+.acc-show {
+  display: block !important; }
+
+.acc-show-visually {
+  clip: inherit !important;
+  height: inherit !important;
+  margin: inherit !important;
+  max-height: inherit !important;
+  overflow: inherit !important;
+  padding: inherit !important;
+  position: inherit !important;
+  width: inherit !important; }
+
+/* --- END HIDE.CSS --- */
+/**
+ * Truncate text, adding an ellipsis at the end of the first row.
+ *
+ * @mixin
+ * @section CSS Enhancements
+ * @param $width default with is set to 100%. Use either a percentage or a pixel based size
+ * @example
+ *  @include single-line-ellipsis();
+ *  @include single-line-ellipsis(300px);
+*/
+/* --- BEGIN ELLIPSIS.CSS --- */
+.acc-truncate-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%; }
+
+/* --- END HIDE.CSS --- */
+/**
+ * Set the desired font size in pixel value, and the mixin will automatically convert it to relative em units, and based on the size, will set it's default line height. 
+ * The line height can also be set as a secondary parameter.
+ *
+ * @mixin
+ * @section CSS Enhancements
+ * @param $font-size set the desired font size, line height is calculated based on it
+ * @param $line-height
+ * @example
+ *  @include text-size(20);
+ *  @include text-size(28, 36); //first parameter is the font-size, second is line height
+*/
+/**
+ * Browser vendors sometimes add prefixes to experimental or nonstandard CSS properties. 
+ * Useful function to avoid writing all the vendor prefixes for various mixins or CSS styles.
+ * Alternative to this could be PostCSS.
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @param $property css property (eg box-sizing);
+ * @param $value value of it's property (eg border-box);
+ * @example
+ *  @include vendor-prefix(box-sizing, border-box);
+*/
+/**
+ * Allows animation of most HTML elements without using Javascript.
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @param $delay 
+ * @param $duration
+ * @param $animation
+ * @example
+ *  @include animation(1s, 3s, my animation);
+*/
+/**
+ * Include, exclude padding and border size in the element's total width and height.
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @param $type default is 'border-box', supports also 'content-box'
+ * @example
+ *  @include box-sizing();
+*/
+/**
+ * The calc() function performs a calculation to be used as the property value.
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @param $property width, or height
+ * @param $expression any type of calculation (eg 100vh + 20px);
+ * @example
+ *  @include calc(width, 100px-20px);
+*/
+/**
+ * Enable a container to become flexible.
+ *
+ * @mixin
+ * @section CSS Helpers > CSS Flex
+ * @example
+ *  @include flexbox();
+*/
+/**
+ * The order CSS property specifies the order used to lay out a flex or grid item in its flex or grid container. Items within the same container are laid out in ascending order according to their order values. Elements with the same order value are laid out in the order in which they appear in the source code.
+ *
+ * @mixin Flex order
+ * @section CSS Helpers > CSS Flex
+ * @param $int has a default value of "0". Accepts any integer.
+ * @example
+ *  @include flex-order(5);
+*/
+/**
+ * The flex property is a shorthand for the flex-grow, flex-shrink and flex-basis.
+ *
+ * @mixin Flex
+ * @section CSS Helpers > CSS Flex
+ * @param $flex-value has a default value of "0 1 auto"
+ * @example
+ *  @include flex(1);
+*/
+/**
+ * The flex-direction property specifies the direction of the flexible items.
+ *
+ * @mixin Flex Direction
+ * @section CSS Helpers > CSS Flex
+ * @param $direction has a default value of "row". Accepts column, column-reverse, row, and row-reverse.
+ * @example
+ *  @include flex-direction(column);
+ *  @include flex-direction(column-reverse);
+*/
+/**
+ * The flex-wrap property specifies whether the flexible items should wrap or not.
+ *
+ * @mixin Flex wrap
+ * @section CSS Helpers > CSS Flex
+ * @param $wrap has a default value of "nowrap". Also accepts wrap, wrap-reverse
+ * @example
+ *  @include flex-wrap(wrap);
+*/
+/**
+ * The flex-flow property is a shorthand property for the flex-direction and flex-wrap properties.
+ *
+ * @mixin Flex flow
+ * @section CSS Helpers > CSS Flex
+ * @param $flow has a default value of "row nowrap". Accepts flex-direction, flex-wrap, initial, inherit.
+ * @example
+ *  @include flex-flow(row nowrap);
+*/
+/**
+ * The flex-grow property specifies how much the item will grow relative to the rest of the flexible items inside the same container.
+ *
+ * @mixin Flex grow
+ * @section CSS Helpers > CSS Flex
+ * @param $grow has a default value of "0". Accepts a number, initial or inherit.
+ * @example
+ *  @include flex-grow(3);
+*/
+/**
+ * The flex-shrink property specifies how the item will shrink relative to the rest of the flexible items inside the same container.
+ *
+ * @mixin Flex shrink
+ * @section CSS Helpers > CSS Flex
+ * @param $shrink has a default value of "1". Accepts a number, initial or inherit.
+ * @example
+ *  @include flex-shrink(3);
+*/
+/**
+ * The flex-basis property specifies the initial length of a flexible item.
+ *
+ * @mixin Flex basis
+ * @section CSS Helpers > CSS Flex
+ * @param $width has a default value of "auto". Accepts a number, auto, initial or inherit.
+ * @example
+ *  @include flex-basis(3);
+*/
+/**
+ * It defines the alignment along the main axis. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size. It also exerts some control over the alignment of items when they overflow the line.
+ *
+ * @mixin Flex justify content
+ * @section CSS Helpers > CSS Flex
+ * @param $justify has a default value of "flex-start". Accepts flex-start, flex-end, center, space-between, space-around, space-evenly
+ * @example
+ *  @include justify-content(flex-end);
+*/
+/**
+ * It helps aligning a flex container's lines within it when there is extra space in the cross-axis, similar to how justify-content aligns individual items within the main-axis.
+ *
+ * @mixin Flex align content
+ * @section CSS Helpers > CSS Flex
+ * @param $align has a default value of "flex-start". Accepts flex-start, flex-end, center, space-between, space-around, stretch
+ * @example
+ *  @include flex-align-content(center);
+*/
+/**
+ * The align-items property specifies the default alignment for items inside the flexible container.
+ *
+ * @mixin Flex align items
+ * @section CSS Helpers > CSS Flex
+ * @param $align has a default value of "stretch". Accepts stretch, center, flex-start, flex-end, baseline, initial, inherit.
+ * @example
+ *  @include flex-align-items(baseline);
+*/
+/**
+ * The align-self property specifies the alignment for the selected item inside the flexible container.
+ *
+ * @mixin Flex align self
+ * @section CSS Helpers > CSS Flex
+ * @param $align has a default value of "auto". Accepts auto, stretch, center, flex-start, flex-end, baseline, initial, inherit.
+ * @example
+ *  @include flex-align-self(stretch);
+*/
+/**
+ * Controls whether the user can select text in a specific section or HTML element. 
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @example
+ *  @include no-select();
+*/
+/**
+ * Specifies the level of transparency of an element.
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @param $argument rational number between 0 and 1. (eg 0.9)
+ * @example
+ *  @include opacity(0.5);
+*/
+/**
+ * The transform property applies a 2D or 3D transformation to an element.
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @param $arguments accepts any transform css property 
+ * @example
+ *  @include transform(scale(1,1.5));
+*/
+/**
+ * Transform-origin. This property allows you to change the position of transformed elements.
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @param $params accepts any transform css property 
+ * @example
+ *  @include transform-origin(30%, 35%);
+*/
+/**
+ * Transform-style. Let the transformed child elements preserve the 3D transformations.
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @param $style accepts 'flat', 'preserve-3d', 'initial', 'inherit'
+ * @example
+ *  @include transform-style(flat);
+*/
+/**
+ * CSS transitions allows you to change property values, from one value to another, over a given duration.
+ *
+ * @mixin
+ * @section CSS Helpers
+ * @param $argument accepts any transition properties
+ * @example
+ *  @include transition(width 2s, height 4s);
+*/
+.acc-icon {
+  display: inline-block;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/**
+ * @icon user
+ * @markup
+ *  <i class="acc-icon --user"></i>
+ */
+.acc-icon.--user:before {
+  content: "\f2ba"; }
+
+/**
+* @icon code
+* @markup
+*  <i class="acc-icon --code"></i>
+*/
+.acc-icon.--code:before {
+  content: "\f121"; }
+
+/**
+* @icon question
+* @markup
+*  <i class="acc-icon --question"></i>
+*/
+.acc-icon.--question:before {
+  content: "\f128"; }
+
+/**
+* @icon copy
+* @markup
+*  <i class="acc-icon --copy"></i>
+*/
+.acc-icon.--copy:before {
+  content: "\f0c5"; }
+
+/**
+* @icon seach
+* @markup
+*  <i class="acc-icon --seach"></i>
+*/
+.acc-icon.--seach:before {
+  content: "\f002"; }
+
+/**
+ * @atom Default styles
+ * @section Form > Buttons
+ * @description
+ *  Buttons containing different color schemes.
+ * @markup
+ *   <button type="button" class="acc-button primary">primary button</button>
+ *   <button type="button" class="acc-button secondary">secondary button</button>
+ *   <button type="button" class="acc-button error">error</button>
+ *   <button type="button" class="acc-button go">proceed</button>
+ *   <button type="button" class="acc-button">greyed (default button)</button>
+ *   <button type="button" class="acc-button" disabled>disabled button</button>
+ *   <button type="button" class="cancel acc-button">transparent button</button>
+*/
+/**
+ * @molecule Buttons with icons
+ * @section Form > Buttons
+ * @description
+ *  Buttons containing icons. With a separator.
+ * @markup
+ *   <button type="button" class="acc-button error icon"><i class="fa fa-times"></i>Error</button>
+ *   <button type="button" class="acc-button proceed icon"><i class="fa fa-check"></i>Success</button>
+ *   <button type="button" class="acc-button primary icon"><i class="fa fa-icon-circle"></i>Info</button>
+*/
+/**
+ * @molecule Buttons with icons
+ * @section Form > Buttons
+ * @description
+ *  Buttons containing icons. Without a separator.
+ * @markup
+ *   <button type="button" class="acc-button error"><i class="fa fa-times"></i>Error</button>
+ *   <button type="button" class="acc-button proceed"><i class="fa fa-check"></i>Success</button>
+ *   <button type="button" class="acc-button primary"><i class="fa fa-icon-circle"></i>Info</button>
+*/
+/**
+ * @atom Default alignments
+ * @section Form > Buttons
+ * @description
+ *  Buttons containing different alingments.
+ * @markup
+ *   <button type="button" class="acc-button bottom small secondary">small button</button>
+ *   <button type="button" class="acc-button bottom secondary">normal button</button>
+ *   <button type="button" class="acc-button large secondary">large button</button><br/>
+ *   <button type="button" class="acc-button large primary">large button</button>
+ *   <button type="button" class="acc-button top primary">normal button</button>
+ *   <button type="button" class="acc-button top small primary">small button</button>
+*/
+/**
+ * @atom Default sizes
+ * @section Form > Buttons
+ * @description
+ *  Buttons containing different sizes.
+ * @markup
+ *   <button type="button" class="acc-button smallest">smallest button</button>
+ *   <button type="button" class="acc-button small">small button</button>
+ *   <button type="button" class="acc-button">normal button</button>
+ *   <button type="button" class="acc-button medium">medium button</button> 
+ *   <button type="button" class="acc-button large">large button</button>
+*/
+/**
+ * @atom Unsemantic buttons
+ * @section Form > Buttons
+ * @description
+ *  Elements that are styled as a button. Examples include links, spans or input elements.
+ * @markup
+ *   <input type="button" value="input button" class="acc-is-button">
+ *   <a class="acc-is-button">link button</a>
+ *   <span class="acc-is-button">span button</span>
+ *   <span class="acc-is-button primary large">span button</span>
+*/
+/* --- BEGIN BUTTONS.CSS --- */
+.acc-button, .acc-is-button {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -ms-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border: 0;
+  border-radius: 0;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: 200;
+  margin: 0 1% 0 0;
+  padding: 0.5rem 1rem;
+  position: relative;
+  text-decoration: none;
+  transition: all .25s;
+  vertical-align: middle;
+  min-width: 80px;
+  min-height: 36px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #646464;
+  box-shadow: 0 2px 0 #575757;
+  cursor: pointer;
+  font-size: 14px;
+  font-size: 1.4rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 24px;
+  line-height: 2.4rem; }
+  .acc-button:hover, .acc-is-button:hover, .acc-button:focus, .acc-is-button:focus {
+    color: #ffffff;
+    outline: none; }
+  .acc-button:hover, .acc-is-button:hover, .acc-button:focus, .acc-is-button:focus {
+    background-color: #3e3e3e;
+    box-shadow: 0 2px 0 #3e3e3e; }
+  .acc-button:active, .acc-is-button:active {
+    background-color: #646464; }
+  .acc-button.primary, .primary.acc-is-button {
+    background-color: #2274a5;
+    box-shadow: 0 2px 0 #1e6590;
+    cursor: pointer; }
+    .acc-button.primary:hover, .primary.acc-is-button:hover, .acc-button.primary:focus, .primary.acc-is-button:focus {
+      background-color: #154766;
+      box-shadow: 0 2px 0 #154766; }
+    .acc-button.primary:active, .primary.acc-is-button:active {
+      background-color: #2274a5; }
+  .acc-button.secondary, .secondary.acc-is-button {
+    background-color: #3e5d6f;
+    box-shadow: 0 2px 0 #354f5f;
+    cursor: pointer; }
+    .acc-button.secondary:hover, .secondary.acc-is-button:hover, .acc-button.secondary:focus, .secondary.acc-is-button:focus {
+      background-color: #23343e;
+      box-shadow: 0 2px 0 #23343e; }
+    .acc-button.secondary:active, .secondary.acc-is-button:active {
+      background-color: #3e5d6f; }
+  .acc-button.error, .error.acc-is-button {
+    background-color: #e90d00;
+    box-shadow: 0 2px 0 #d00c00;
+    cursor: pointer; }
+    .acc-button.error:hover, .error.acc-is-button:hover, .acc-button.error:focus, .error.acc-is-button:focus {
+      background-color: #9d0900;
+      box-shadow: 0 2px 0 #9d0900; }
+    .acc-button.error:active, .error.acc-is-button:active {
+      background-color: #e90d00; }
+  .acc-button.go, .go.acc-is-button {
+    background-color: #00b069;
+    box-shadow: 0 2px 0 #00975a;
+    cursor: pointer; }
+    .acc-button.go:hover, .go.acc-is-button:hover, .acc-button.go:focus, .go.acc-is-button:focus {
+      background-color: #00643b;
+      box-shadow: 0 2px 0 #00643b; }
+    .acc-button.go:active, .go.acc-is-button:active {
+      background-color: #00b069; }
+  .acc-button.cancel, .cancel.acc-is-button {
+    background-color: transparent;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0);
+    cursor: pointer;
+    color: #000000; }
+    .acc-button.cancel:hover, .cancel.acc-is-button:hover, .acc-button.cancel:focus, .cancel.acc-is-button:focus {
+      background-color: rgba(0, 0, 0, 0);
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0); }
+    .acc-button.cancel:active, .cancel.acc-is-button:active {
+      background-color: transparent; }
+    .acc-button.cancel:hover, .cancel.acc-is-button:hover, .acc-button.cancel:active, .cancel.acc-is-button:active, .acc-button.cancel:focus, .cancel.acc-is-button:focus {
+      color: #333333; }
+  .acc-button.disabled, .disabled.acc-is-button {
+    background-color: #cccccc;
+    box-shadow: 0 2px 0 #bfbfbf;
+    cursor: pointer;
+    cursor: not-allowed;
+    color: #b2b2b2;
+    -webkit-opacity: 0.95;
+    -khtml-opacity: 0.95;
+    -moz-opacity: 0.95;
+    -ms-opacity: 0.95;
+    -o-opacity: 0.95;
+    opacity: 0.95;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
+    filter: alpha(opacity=95); }
+    .acc-button.disabled:hover, .disabled.acc-is-button:hover, .acc-button.disabled:focus, .disabled.acc-is-button:focus {
+      background-color: #a6a6a6;
+      box-shadow: 0 2px 0 #a6a6a6; }
+    .acc-button.disabled:active, .disabled.acc-is-button:active {
+      background-color: #cccccc; }
+    .acc-button.disabled:hover, .disabled.acc-is-button:hover, .acc-button.disabled:active, .disabled.acc-is-button:active, .acc-button.disabled:focus, .disabled.acc-is-button:focus {
+      color: #b2b2b2; }
+  .acc-button[disabled], .acc-is-button[disabled] {
+    background-color: #cccccc;
+    box-shadow: 0 2px 0 #bfbfbf;
+    cursor: pointer;
+    cursor: not-allowed;
+    color: #b2b2b2;
+    -webkit-opacity: 0.95;
+    -khtml-opacity: 0.95;
+    -moz-opacity: 0.95;
+    -ms-opacity: 0.95;
+    -o-opacity: 0.95;
+    opacity: 0.95;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=95)";
+    filter: alpha(opacity=95); }
+    .acc-button[disabled]:hover, .acc-is-button[disabled]:hover, .acc-button[disabled]:focus, .acc-is-button[disabled]:focus {
+      background-color: #a6a6a6;
+      box-shadow: 0 2px 0 #a6a6a6; }
+    .acc-button[disabled]:active, .acc-is-button[disabled]:active {
+      background-color: #cccccc; }
+    .acc-button[disabled]:hover, .acc-is-button[disabled]:hover, .acc-button[disabled]:active, .acc-is-button[disabled]:active, .acc-button[disabled]:focus, .acc-is-button[disabled]:focus {
+      color: #b2b2b2; }
+  .acc-button.large, .large.acc-is-button {
+    font-size: 14px;
+    font-size: 1.4rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+    line-height: 26px;
+    line-height: 2.6rem;
+    padding-bottom: .5em;
+    padding-top: .5em;
+    min-height: 50px;
+    min-width: 120px; }
+  .acc-button.small, .small.acc-is-button {
+    font-size: 11px;
+    font-size: 1.1rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+    line-height: 1.22;
+    padding: .5em 1.5em .15em 1.5em;
+    min-height: 22px;
+    min-width: 60px; }
+  .acc-button.smallest, .smallest.acc-is-button {
+    font-size: 9px;
+    font-size: 0.9rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+    line-height: 1.18;
+    padding: .5em 1.5em .15em 1.5em;
+    min-height: 14px;
+    min-width: 60px; }
+  .acc-button.top, .top.acc-is-button {
+    vertical-align: top; }
+  .acc-button.bottom, .bottom.acc-is-button {
+    vertical-align: bottom; }
+  .acc-button.icon, .icon.acc-is-button {
+    padding-left: 4em;
+    padding-right: 1em;
+    box-shadow: none; }
+    .acc-button.icon > i, .icon.acc-is-button > i {
+      left: 1em;
+      margin-top: -.5em;
+      position: absolute;
+      top: 50%; }
+    .acc-button.icon:before, .icon.acc-is-button:before {
+      background-color: rgba(0, 0, 0, 0.25);
+      border-radius: 0 0 0 0;
+      bottom: 0;
+      content: '';
+      left: 0;
+      position: absolute;
+      top: 0;
+      transition: all .25s;
+      width: 3em; }
+    .acc-button.icon:hover, .icon.acc-is-button:hover, .acc-button.icon:focus, .icon.acc-is-button:focus {
+      box-shadow: none; }
+  .acc-button:not(.icon) > i, .acc-is-button:not(.icon) > i {
+    position: relative;
+    right: 5px; }
+
+.acc-is-button {
+  font-size: 14px;
+  font-size: 1.4rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 26px;
+  line-height: 2.6rem; }
+  .acc-is-button:hover {
+    text-decoration: none; }
+  .acc-is-button.large {
+    font-size: 14px;
+    font-size: 1.4rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+    line-height: 36px;
+    line-height: 3.6rem; }
+
+/* --- END BUTTONS.CSS --- */
+/**
+ * @molecule Checkbox
+ * @section Form > Checkboxes
+ * @description
+ *  Default checkbox styling.
+ * @markup
+ *  <label class="acc-is-checkbox">
+ *   <input id="check2" type="checkbox" onchange="console.log('changed');">
+ *   <span></span>
+ *   Checkbox
+ *  </label>
+*/
+/**
+ * @molecule Radio
+ * @section Form > Checkboxes
+ * @description
+ *  Default radion buttons styling.
+ * @markup
+ *  <label class="acc-is-radio">
+ *   <input id="check3" type="radio" name="unique" onchange="console.log('changed');">
+ *   <span></span>
+ *   Radio button
+ *  </label><br/><br/>
+  *  <label class="acc-is-radio">
+ *   <input id="check4" type="radio" name="unique" onchange="console.log('changed');">
+ *   <span></span>
+ *   Radio button
+ *  </label>
+*/
+/* --- BEGIN TOGGLE-ELEMENTS.CSS --- */
+.acc-is-checkbox {
+  position: relative;
+  cursor: pointer;
+  color: #4a4a4a; }
+  .acc-is-checkbox::selection {
+    background: transparent; }
+  .acc-is-checkbox input + span {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    content: "";
+    display: inline-block;
+    margin: 0 .5em 0 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 2em;
+    height: 2em;
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden; }
+    .acc-is-checkbox input + span::after {
+      content: "";
+      display: block;
+      transform: scale(0);
+      transition: transform .2s; }
+  @media screen and (min-width: 768px) {
+    .acc-is-checkbox:hover input + span {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); } }
+  .acc-is-checkbox input:active + span {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
+  .acc-is-checkbox input:focus + span {
+    box-shadow: 0 0 0 3px lightblue; }
+  .acc-is-checkbox input:checked + span::after {
+    transform: scale(1); }
+  .acc-is-checkbox input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0; }
+  .acc-is-checkbox input + span {
+    border-radius: 2px; }
+    .acc-is-checkbox input + span::after {
+      background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2NHB4IiBoZWlnaHQ9IjY0cHgiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNjQgNjQiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPjxwb2x5Z29uIHBvaW50cz0iMTMuNzA3LDMyLjI5MyAxMi4yOTMsMzMuODU0IDI0LjI5Myw0NiAyNS43MDcsNDYgNDkuNzA3LDIxLjg1NCA0OC4yOTMsMjAuMzY2IDI1LDQzLjYyMyAiLz48L2c+PC9zdmc+) no-repeat center;
+      background-size: contain;
+      width: 2em;
+      height: 2em; }
+
+.acc-is-radio {
+  position: relative;
+  cursor: pointer;
+  color: #4a4a4a; }
+  .acc-is-radio::selection {
+    background: transparent; }
+  .acc-is-radio input + span {
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    content: "";
+    display: inline-block;
+    margin: 0 .5em 0 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 2em;
+    height: 2em;
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden; }
+    .acc-is-radio input + span::after {
+      content: "";
+      display: block;
+      transform: scale(0);
+      transition: transform .2s; }
+  @media screen and (min-width: 768px) {
+    .acc-is-radio:hover input + span {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); } }
+  .acc-is-radio input:active + span {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
+  .acc-is-radio input:focus + span {
+    box-shadow: 0 0 0 3px lightblue; }
+  .acc-is-radio input:checked + span::after {
+    transform: scale(1); }
+  .acc-is-radio input {
+    position: absolute;
+    cursor: pointer;
+    opacity: 0; }
+  .acc-is-radio input + span {
+    border-radius: 100%; }
+    .acc-is-radio input + span::after {
+      border-radius: 100%;
+      margin: 3px auto;
+      width: 28px;
+      height: 28px; }
+  .acc-is-radio input:checked + span::after {
+    background: #4a4a4a; }
+
+/* --- END TOGGLE-ELEMENTS.CSS --- */
+/**
+ * @molecule Inline select
+ * @section Form > Dropdowns
+ * @description
+ *  Form wrapper that contains the select and the label side by side.
+ * @markup
+ *  <div class="acc-form-inline">
+ *   <label for="select">label</label>
+ *   <select class="acc-is-select">
+ *    <option value="Option 1">option 1</option>
+ *    <option value="Option 2">option 2</option>
+ *    <option value="Option 3">option 3</option>
+ *   </select>
+ *  </div>
+*/
+/**
+ * @molecule Block select
+ * @section Form > Dropdowns
+ * @description
+ *  Form wrapper that contains the select and the label one after the other, functioning as block elements.
+ * @markup
+ *  <div class="acc-form">
+ *   <label for="select">label</label>
+ *   <select class="acc-is-select">
+ *    <option value="Option 1">option 1</option>
+ *    <option value="Option 2">option 2</option>
+ *    <option value="Option 3">option 3</option>
+ *   </select>
+ *  </div>
+*/
+/* --- BEGIN DROP-DOWNS.CSS --- */
+.acc-form .acc-is-select {
+  font-size: 16px;
+  font-size: 1.6rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.32;
+  padding: 0 10px;
+  display: block;
+  min-width: 100px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  color: #313131;
+  height: 38px;
+  margin-bottom: 10px;
+  outline: none;
+  padding-left: 15px; }
+
+.acc-form-inline .acc-is-select {
+  font-size: 16px;
+  font-size: 1.6rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.32;
+  padding: 0 10px;
+  display: inline-block;
+  min-width: 100px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  color: #313131;
+  height: 38px;
+  margin-bottom: 10px;
+  outline: none;
+  padding-left: 15px; }
+
+/* --- END DROP-DOWNS.CSS --- */
+/**
+ * @molecule Block inputs
+ * @section Form > Input
+ * @description
+ *  Default styling for inputs, wrapped in a form div.
+ * @markup
+ *  <div class="acc-form">
+ *   <label>Text Input</label>
+ *   <input class="acc-input" type="text" value="hello">
+ *  </div>
+*/
+/**
+ * @molecule Inline inputs
+ * @section Form > Input
+ * @description
+ *  Alternate input example, having the wrapper of the form function as an inline-block.
+ * @markup
+ *  <div class="acc-form-inline">
+ *   <label>Text Input</label>
+ *   <input class="acc-input" type="text" value="hello">
+ *  </div>
+*/
+/**
+ * @molecule Textarea
+ * @section Form > Input
+ * @description
+ *  Default styling for textarea
+ * @markup
+ *  <div class="acc-form">
+ *   <textarea class="acc-textarea" name="message" rows="10" cols="30">test</textarea>
+ *  </div>
+*/
+/* --- BEGIN INPUT-TEXTAREA.CSS --- */
+.acc-form span {
+  display: block; }
+
+.acc-form label {
+  display: block;
+  font-size: 16px;
+  font-size: 1.6rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.32; }
+
+.acc-form span {
+  color: #313131; }
+
+.acc-form label {
+  color: #313131; }
+
+.acc-form .acc-input[type=text], .acc-form .acc-input[type=password], .acc-form .acc-input[type=email], .acc-form .acc-input[type=number] {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  color: #313131;
+  height: 38px;
+  margin-bottom: 10px;
+  outline: none;
+  padding-left: 15px;
+  display: block; }
+
+.acc-form .acc-input::-webkit-input-placeholder {
+  color: #313131; }
+
+.acc-form .acc-input:-moz-placeholder {
+  color: #313131; }
+
+.acc-form .acc-input::-moz-placeholder {
+  color: #313131; }
+
+.acc-form .acc-input:-ms-input-placeholder {
+  color: #313131; }
+
+.acc-form-inline span {
+  display: inline-block; }
+
+.acc-form-inline label {
+  display: inline-block;
+  font-size: 16px;
+  font-size: 1.6rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.32; }
+
+.acc-form-inline span {
+  color: #313131; }
+
+.acc-form-inline label {
+  color: #313131; }
+
+.acc-form-inline .acc-input[type=text], .acc-form-inline .acc-input[type=password], .acc-form-inline .acc-input[type=email], .acc-form-inline .acc-input[type=number] {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  color: #313131;
+  height: 38px;
+  margin-bottom: 10px;
+  outline: none;
+  padding-left: 15px;
+  display: inline-block; }
+
+.acc-form-inline .acc-input::-webkit-input-placeholder {
+  color: #313131; }
+
+.acc-form-inline .acc-input:-moz-placeholder {
+  color: #313131; }
+
+.acc-form-inline .acc-input::-moz-placeholder {
+  color: #313131; }
+
+.acc-form-inline .acc-input:-ms-input-placeholder {
+  color: #313131; }
+
+.acc-form-inline > input[type="text"][type=text], .acc-form-inline > input[type="text"][type=password], .acc-form-inline > input[type="text"][type=email], .acc-form-inline > input[type="text"][type=number], .acc-form-inline > input[type="email"][type=text], .acc-form-inline > input[type="email"][type=password], .acc-form-inline > input[type="email"][type=email], .acc-form-inline > input[type="email"][type=number], .acc-form-inline > input[type="password"][type=text], .acc-form-inline > input[type="password"][type=password], .acc-form-inline > input[type="password"][type=email], .acc-form-inline > input[type="password"][type=number] {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  color: #313131;
+  height: 38px;
+  margin-bottom: 10px;
+  outline: none;
+  padding-left: 15px;
+  display: inline-block; }
+
+.acc-form-inline > input[type="text"]::-webkit-input-placeholder, .acc-form-inline > input[type="email"]::-webkit-input-placeholder, .acc-form-inline > input[type="password"]::-webkit-input-placeholder {
+  color: #313131; }
+
+.acc-form-inline > input[type="text"]:-moz-placeholder, .acc-form-inline > input[type="email"]:-moz-placeholder, .acc-form-inline > input[type="password"]:-moz-placeholder {
+  color: #313131; }
+
+.acc-form-inline > input[type="text"]::-moz-placeholder, .acc-form-inline > input[type="email"]::-moz-placeholder, .acc-form-inline > input[type="password"]::-moz-placeholder {
+  color: #313131; }
+
+.acc-form-inline > input[type="text"]:-ms-input-placeholder, .acc-form-inline > input[type="email"]:-ms-input-placeholder, .acc-form-inline > input[type="password"]:-ms-input-placeholder {
+  color: #313131; }
+
+.acc-form .acc-textarea {
+  -webkit-box-sizing: border-box;
+  -khtml-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  padding: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 0;
+  margin-bottom: 10px;
+  color: #313131;
+  display: block; }
+
+/* --- END INPUT-TEXTAREA.CSS --- */
+/**
+ * Generic blockquote style for medium to long blocks of text. This element
+ * is using the @{lipsum} substitution to generate two blocks of text.
+ *
+ * @atom Blockquote
+ * @section Typography > Content markup tags
+ * @markup
+ *  <blockquote class="acc-is-quote">
+ *    @{lipsum:2:paragraphs}
+ *  </blockquote>
+ */
+/* --- BEGIN BLOCKQUOTE.CSS --- */
+.acc-is-quote {
+  color: #4a4a4a;
+  border-left: 10px solid #cccccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "“" "”";
+  font-size: 18px;
+  font-size: 1.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.36; }
+  .acc-is-quote:before {
+    font-size: 80px;
+    font-size: 8rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+    line-height: 1px;
+    line-height: 0.1rem;
+    color: #cccccc;
+    content: open-quote;
+    margin-right: 0.15em;
+    vertical-align: -0.4em;
+    position: relative;
+    top: 7px; }
+  .acc-is-quote:after {
+    font-size: 80px;
+    font-size: 8rem;
+    -webkit-font-smoothing: subpixel-antialiased;
+    line-height: 1px;
+    line-height: 0.1rem;
+    color: #cccccc;
+    content: close-quote;
+    margin-left: 0.15em;
+    vertical-align: -0.4em;
+    position: relative;
+    top: 9px; }
+  .acc-is-quote p {
+    display: inline; }
+
+/* --- END BLOCKQUOTE.CSS --- */
+/* --- BEGIN CODE.CSS --- */
+/**
+ * Generic blockquote style for medium to long blocks of text. This element
+ * is using the @{lipsum} substitution to generate two blocks of text.
+ *
+ * @atom Code > Default
+ * @section Typography > Content markup tags
+ * @markup
+ *  <pre class="acc-is-code">
+ *   <label>default</label>
+ *   <code>
+ *   this is code
+ *   </code>
+ *  </pre>
+ */
+.acc-is-code {
+  display: -moz-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  background: #313131;
+  white-space: pre;
+  word-wrap: break-word;
+  overflow: auto;
+  margin: 10px 0;
+  border-radius: 0;
+  border: black;
+  position: relative; }
+  .acc-is-code label {
+    font-weight: bold;
+    font-size: 13px;
+    color: #ddd;
+    text-align: center;
+    width: 70px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+    display: -moz-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .acc-is-code code {
+    display: block;
+    margin: 0 0 0 5px;
+    padding: 15px 16px 14px;
+    border-left: 1px solid #b1b1b1;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 19px;
+    color: #b1b1b1;
+    cursor: text; }
+  .acc-is-code::after {
+    content: "double click to selection";
+    padding: 0;
+    width: auto;
+    height: auto;
+    position: absolute;
+    right: 18px;
+    top: 14px;
+    font-size: 12px;
+    color: #ddd;
+    line-height: 20px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: all 0.3s ease; }
+  .acc-is-code:hover::after {
+    opacity: 0;
+    visibility: visible; }
+  .acc-is-code.css {
+    border: #3b93db;
+    background: #203356; }
+    .acc-is-code.css code {
+      color: #efefef;
+      border-left: 1px solid #efefef; }
+
+/**
+ * Code style for CSS.
+ *
+ * @atom Code > Styled
+ * @section Typography > Content markup tags
+ * @markup
+ *  <pre class="acc-is-code css">
+ *   <label>default</label>
+ *   <code>
+ *    .test {
+ *      display: none;
+ *    }
+ *   </code>
+ *  </pre>
+ */
+/* --- END CODE.CSS --- */
+/**
+ * Headlines which visually separate and introduce content.
+ *
+ * @atom Headlines
+ * @section Typography > Content markup tags
+ * @markup
+ *  <h1>Headline H1</h1>
+ *  <h2>Headline H2</h2>
+ *  <h3>Headline H3</h3>
+ *  <h4>Headline H4</h4>
+ *  <h5>Headline H5</h5>
+ *  <h6>Headline H6</h6>
+*/
+/* --- BEGIN HEADINGS.CSS --- */
+h1 {
+  margin-bottom: 15px;
+  color: #313131;
+  font-size: 48px;
+  font-size: 4.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.96; }
+
+h2 {
+  margin-bottom: 15px;
+  color: #313131;
+  font-size: 38px;
+  font-size: 3.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.76; }
+
+h3 {
+  margin-bottom: 15px;
+  color: #313131;
+  font-size: 32px;
+  font-size: 3.2rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.64; }
+
+h4 {
+  margin-bottom: 15px;
+  color: #313131;
+  font-size: 28px;
+  font-size: 2.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.56; }
+
+h5 {
+  margin-bottom: 15px;
+  color: #313131;
+  font-size: 24px;
+  font-size: 2.4rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.48; }
+
+h6 {
+  margin-bottom: 15px;
+  color: #313131;
+  font-size: 22px;
+  font-size: 2.2rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.44; }
+
+/* --- END HEADINGS.CSS --- */
+/**
+ * Default styling for the <a> tag.
+ *
+ * @atom Links
+ * @section Typography > Content markup tags
+ * @markup
+ *  <a>Link</a><br/>
+ *  <a href="#test">Link with url</a>
+*/
+/* --- BEGIN LINKS.CSS --- */
+a {
+  font-size: 16px;
+  font-size: 1.6rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.32;
+  background-color: transparent;
+  text-decoration: none;
+  color: #000000;
+  -webkit-transition: color 0.3s ease;
+  -khtml-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+  color: #000000;
+  text-decoration: underline; }
+  a:hover {
+    -webkit-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    -moz-opacity: 0.9;
+    -ms-opacity: 0.9;
+    -o-opacity: 0.9;
+    opacity: 0.9;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+    filter: alpha(opacity=90);
+    color: #666; }
+  a:hover {
+    text-decoration: underline; }
+
+/* --- END LINKS.CSS --- */
+/**
+ * Overwriting the default bullet list and providing a design more easy to 
+ * style and scale.
+ *
+ * @atom Default Lists
+ * @section Typography > Content markup tags
+ * @markup
+ *  <ul class="acc-list-default">
+ *    <li>default list style</li>
+ *    <li>default list style</li>
+ *    <li>default list style</li>
+ *  </ul>
+*/
+/**
+ * Following the previous concept, we have created a square style.
+ *
+ * @atom Square Lists
+ * @section Typography > Content markup tags
+ * @markup
+ *  <ul class="acc-list-square">
+ *    <li>square list style</li>
+ *    <li>square list style</li>
+ *    <li>square list style</li>
+ *  </ul>
+*/
+/**
+ * Scaling the default list, we have created a dash list style.
+ *
+ * @atom Dash Lists
+ * @section Typography > Content markup tags
+ * @markup
+ *  <ul class="acc-list-dash">
+ *    <li>dash list style</li>
+ *    <li>dash list style</li>
+ *    <li>dash list style</li>
+ *  </ul>
+*/
+/**
+ * Similar concept as the previous list designs, targeting the ordered lists.
+ *
+ * @atom Ordered Lists
+ * @section Typography > Content markup tags
+ * @markup
+ *  <ol class="acc-list-ordered">
+ *    <li>ordered list style</li>
+ *    <li>ordered list style</li>
+ *    <li>ordered list style</li>
+ *  </ol>
+*/
+/* --- BEGIN LISTS.CSS --- */
+ol,
+ul,
+li {
+  list-style: none; }
+
+.acc-list-default li {
+  font-size: 18px;
+  font-size: 1.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 30px;
+  line-height: 3rem;
+  position: relative;
+  padding-left: 1.75rem; }
+  .acc-list-default li:before {
+    content: '';
+    width: .375em;
+    height: .375em;
+    border-radius: 2em;
+    position: absolute;
+    left: 0;
+    top: .6em;
+    background: #2274a5; }
+
+.acc-list-square li {
+  font-size: 18px;
+  font-size: 1.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 30px;
+  line-height: 3rem;
+  position: relative;
+  padding-left: 1.75rem; }
+  .acc-list-square li:before {
+    content: '';
+    width: .375em;
+    height: .375em;
+    border-radius: 2em;
+    position: absolute;
+    left: 0;
+    top: .6em;
+    background: #2274a5; }
+
+.acc-list-square li:before {
+  border-radius: 0; }
+
+.acc-list-dash li {
+  font-size: 18px;
+  font-size: 1.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 30px;
+  line-height: 3rem;
+  position: relative;
+  padding-left: 1.75rem; }
+  .acc-list-dash li:before {
+    content: '';
+    width: .375em;
+    height: .375em;
+    border-radius: 2em;
+    position: absolute;
+    left: 0;
+    top: .6em;
+    background: #2274a5; }
+
+.acc-list-dash li:before {
+  width: .5em;
+  height: .2em;
+  top: .93em; }
+
+.acc-list-ordered > li {
+  font-size: 18px;
+  font-size: 1.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 30px;
+  line-height: 3rem;
+  position: relative;
+  counter-increment: item; }
+  .acc-list-ordered > li:before {
+    color: #2274a5;
+    content: counter(item);
+    display: inline-block;
+    padding-right: 2px;
+    border-radius: 100%;
+    min-width: 2rem;
+    text-align: left; }
+
+.acc-list-ordered ul {
+  padding-left: 20px; }
+
+/* --- END LISTS.CSS --- */
+/* --- BEGIN INLINE-CONTENT.CSS --- */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * Generic paragraph style for medium to long blocks of text. This element is using the @{lipsum} substitution to generate two blocks of text.
+ *
+ * @atom Paragraph
+ * @section Typography > Content markup tags
+ * @markup
+ *  <p>
+ *    @{lipsum:2:paragraphs}
+ *  </p>
+*/
+p {
+  margin-bottom: 15px;
+  color: #4a4a4a;
+  font-size: 18px;
+  font-size: 1.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.36; }
+
+/**
+ * Basic styles to decorate text. Just use normal semantic markup. 
+ *
+ * @atom Basic text style
+ * @section Typography > Content markup tags
+ * @markup
+ *  <strong>Bold text</strong><br/>
+ *  <em>Italic text</em><br/>
+ *  <u>Underline</u>
+*/
+p span {
+  margin-bottom: 15px;
+  color: #4a4a4a;
+  font-size: 18px;
+  font-size: 1.8rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.36; }
+
+/* --- END INLINE-CONTENT.CSS --- */
+/**
+ * @molecule Toolip molecule
+ * @section Tooltip
+ * @description
+ *  Created using an icon, headings level 5 and a little bit of geomerty.
+ * @markup
+ *  <div class="tooltip">
+ *      <h5>upper right tooltip example <i class="acc-info-icon top-right" data-tooltip="this is tooltip">i</i></h5>
+ *      <h5>upper left tooltip example <i class="acc-info-icon top-left" data-tooltip="this is tooltip">i</i></h5>
+ *      <h5>bottom right tooltip example <i class="acc-info-icon bottom-right" data-tooltip="this is tooltip">i</i></h5>
+ *      <h5>bottom left tooltip example <i class="acc-info-icon bottom-left" data-tooltip="this is tooltip">i</i></h5>
+ *  </div>
+*/
+/* --- BEGIN TOOL-TIPS.CSS --- */
+.acc-info-icon {
+  font-size: 16px;
+  font-size: 1.6rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 30px;
+  line-height: 3rem;
+  background: #cccccc;
+  border-radius: 50%;
+  color: #ffffff;
+  display: inline-block;
+  font-style: normal;
+  height: 30px;
+  margin: 0 10px 10px 10px;
+  text-align: center;
+  width: 30px; }
+  .acc-info-icon.top-right {
+    position: relative; }
+    .acc-info-icon.top-right:before, .acc-info-icon.top-right:after {
+      opacity: 0;
+      pointer-events: none;
+      z-index: 98; }
+    .acc-info-icon.top-right:before {
+      background-color: #646464;
+      border-radius: 0;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      content: attr(data-tooltip);
+      font-size: 13px;
+      font-weight: normal;
+      line-height: 18px;
+      color: #ffffff;
+      padding: 10px 15px;
+      position: absolute;
+      text-align: left;
+      white-space: normal;
+      width: 220px; }
+    .acc-info-icon.top-right:after {
+      content: ''; }
+    .acc-info-icon.top-right:hover:before, .acc-info-icon.top-right:hover:after {
+      opacity: 1;
+      pointer-events: all; }
+    .acc-info-icon.top-right:before {
+      -webkit-transform: translateY(-100%);
+      -khtml-transform: translateY(-100%);
+      -moz-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      -o-transform: translateY(-100%);
+      transform: translateY(-100%);
+      bottom: auto;
+      top: -9px; }
+    .acc-info-icon.top-right:after {
+      content: '';
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0;
+      border-bottom: none;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #646464;
+      bottom: auto;
+      top: -9px; }
+    .acc-info-icon.top-right:before, .acc-info-icon.top-right:after {
+      left: 50%;
+      margin-left: -6px;
+      right: auto; }
+    .acc-info-icon.top-right:before {
+      margin-left: -18px; }
+  .acc-info-icon.top-left {
+    position: relative; }
+    .acc-info-icon.top-left:before, .acc-info-icon.top-left:after {
+      opacity: 0;
+      pointer-events: none;
+      z-index: 98; }
+    .acc-info-icon.top-left:before {
+      background-color: #646464;
+      border-radius: 0;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      content: attr(data-tooltip);
+      font-size: 13px;
+      font-weight: normal;
+      line-height: 18px;
+      color: #ffffff;
+      padding: 10px 15px;
+      position: absolute;
+      text-align: left;
+      white-space: normal;
+      width: 220px; }
+    .acc-info-icon.top-left:after {
+      content: ''; }
+    .acc-info-icon.top-left:hover:before, .acc-info-icon.top-left:hover:after {
+      opacity: 1;
+      pointer-events: all; }
+    .acc-info-icon.top-left:before {
+      -webkit-transform: translateY(-100%);
+      -khtml-transform: translateY(-100%);
+      -moz-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      -o-transform: translateY(-100%);
+      transform: translateY(-100%);
+      bottom: auto;
+      top: -9px; }
+    .acc-info-icon.top-left:after {
+      content: '';
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0;
+      border-bottom: none;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #646464;
+      bottom: auto;
+      top: -9px; }
+    .acc-info-icon.top-left:before, .acc-info-icon.top-left:after {
+      left: auto;
+      margin-right: -6px;
+      right: 50%; }
+    .acc-info-icon.top-left:before {
+      margin-right: -18px; }
+  .acc-info-icon.bottom-right {
+    position: relative; }
+    .acc-info-icon.bottom-right:before, .acc-info-icon.bottom-right:after {
+      opacity: 0;
+      pointer-events: none;
+      z-index: 98; }
+    .acc-info-icon.bottom-right:before {
+      background-color: #646464;
+      border-radius: 0;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      content: attr(data-tooltip);
+      font-size: 13px;
+      font-weight: normal;
+      line-height: 18px;
+      color: #ffffff;
+      padding: 10px 15px;
+      position: absolute;
+      text-align: left;
+      white-space: normal;
+      width: 220px; }
+    .acc-info-icon.bottom-right:after {
+      content: ''; }
+    .acc-info-icon.bottom-right:hover:before, .acc-info-icon.bottom-right:hover:after {
+      opacity: 1;
+      pointer-events: all; }
+    .acc-info-icon.bottom-right:before {
+      -webkit-transform: translateY(100%);
+      -khtml-transform: translateY(100%);
+      -moz-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+      -o-transform: translateY(100%);
+      transform: translateY(100%);
+      bottom: -9px;
+      top: auto; }
+    .acc-info-icon.bottom-right:after {
+      content: '';
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0;
+      border-bottom: 6px solid #646464;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: none;
+      bottom: -9px;
+      top: auto; }
+    .acc-info-icon.bottom-right:before, .acc-info-icon.bottom-right:after {
+      left: 50%;
+      margin-left: -6px;
+      right: auto; }
+    .acc-info-icon.bottom-right:before {
+      margin-left: -18px; }
+  .acc-info-icon.bottom-left {
+    position: relative; }
+    .acc-info-icon.bottom-left:before, .acc-info-icon.bottom-left:after {
+      opacity: 0;
+      pointer-events: none;
+      z-index: 98; }
+    .acc-info-icon.bottom-left:before {
+      background-color: #646464;
+      border-radius: 0;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      content: attr(data-tooltip);
+      font-size: 13px;
+      font-weight: normal;
+      line-height: 18px;
+      color: #ffffff;
+      padding: 10px 15px;
+      position: absolute;
+      text-align: left;
+      white-space: normal;
+      width: 220px; }
+    .acc-info-icon.bottom-left:after {
+      content: ''; }
+    .acc-info-icon.bottom-left:hover:before, .acc-info-icon.bottom-left:hover:after {
+      opacity: 1;
+      pointer-events: all; }
+    .acc-info-icon.bottom-left:before {
+      -webkit-transform: translateY(100%);
+      -khtml-transform: translateY(100%);
+      -moz-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+      -o-transform: translateY(100%);
+      transform: translateY(100%);
+      bottom: -9px;
+      top: auto; }
+    .acc-info-icon.bottom-left:after {
+      content: '';
+      display: block;
+      height: 0;
+      position: absolute;
+      width: 0;
+      border-bottom: 6px solid #646464;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: none;
+      bottom: -9px;
+      top: auto; }
+    .acc-info-icon.bottom-left:before, .acc-info-icon.bottom-left:after {
+      left: auto;
+      margin-right: -6px;
+      right: 50%; }
+    .acc-info-icon.bottom-left:before {
+      margin-right: -18px; }
+
+/* --- END TOOL-TIPS.CSS --- */
+/* --- BEGIN GRID.CSS --- */
+/**
+ * Semantic structure. Create and divide columns using a natural semantic HTML language. Providing also an option for auto generating width.
+ * @structure Default grid
+ * @section Grid
+ * @markup
+ *  <div class="colored-grid">
+ *   <div class="acc-row">
+ *    <div class="col-full">Full width</div>
+ *   </div>
+ *   <div class="acc-row">
+ *    <div class="col-half">One half</div>
+ *    <div class="col-half">One half</div>
+ *   </div>
+ *   <div class="acc-row">
+ *    <div class="col-third">One third</div>
+ *    <div class="col-third">One third</div>
+ *    <div class="col-third">One third</div>
+ *   </div>
+ *   <div class="acc-row">
+ *    <div class="col-auto">Auto width</div>
+ *    <div class="col-auto">Auto width</div>
+ *    <div class="col-auto">Auto width</div>
+ *    <div class="col-auto">Auto width</div>
+ *    <div class="col-auto">Auto width</div>
+ *    <div class="col-auto">Auto width</div>
+ *   </div>
+ * </div>
+ */
+.acc-row {
+  display: -moz-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  margin-left: -1.5%;
+  padding: 0; }
+  .acc-row > div {
+    -webkit-box-flex: 1 0 100%;
+    -moz-box-flex: 1 0 100%;
+    -webkit-flex: 1 0 100%;
+    -ms-flex: 1 0 100%;
+    flex: 1 0 100%;
+    margin-left: 1.5%;
+    margin-bottom: 0.75%; }
+  .acc-row [class*="col-auto"] {
+    -webkit-box-flex: 1 0 auto;
+    -moz-box-flex: 1 0 auto;
+    -webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto; }
+  .acc-row .col-full {
+    max-width: 98.5%; }
+  .acc-row .col-half {
+    max-width: 48.5%; }
+  .acc-row .col-third {
+    max-width: 31.83333%; }
+
+/**
+ * Default grid system with 12 columns.
+ * @structure 12 columns grid system
+ * @section Grid
+ * @markup
+ *  <div class="colored-grid">
+ *   <div class="acc-row">
+ *    <div class="col-12">Full width</div>
+ *   </div>
+ *   <div class="acc-row">
+ *    <div class="col-6">One half</div>
+ *    <div class="col-6">One half</div>
+ *   </div>
+ *   <div class="acc-row">
+ *    <div class="col-3">One third</div>
+ *    <div class="col-4">One fourth</div>
+ *    <div class="col-5">One fifth</div>
+ *   </div>
+ *   <div class="acc-row">
+ *    <div class="col-2">Column 2</div>
+ *    <div class="col-2">Column 2</div>
+ *    <div class="col-6">Column 6</div>
+ *    <div class="col-1">Column 1</div>
+ *    <div class="col-auto">Auto width</div>
+ *   </div>
+ * </div>
+ */
+.acc-row .col-1 {
+  max-width: 6.83333%; }
+
+.acc-row .col-2 {
+  max-width: 15.16667%; }
+
+.acc-row .col-3 {
+  max-width: 23.5%; }
+
+.acc-row .col-4 {
+  max-width: 31.83333%; }
+
+.acc-row .col-5 {
+  max-width: 40.16667%; }
+
+.acc-row .col-6 {
+  max-width: 48.5%; }
+
+.acc-row .col-7 {
+  max-width: 56.83333%; }
+
+.acc-row .col-8 {
+  max-width: 65.16667%; }
+
+.acc-row .col-9 {
+  max-width: 73.5%; }
+
+.acc-row .col-10 {
+  max-width: 81.83333%; }
+
+.acc-row .col-11 {
+  max-width: 90.16667%; }
+
+.acc-row .col-12 {
+  max-width: 98.5%; }
+
+/**
+ * todo
+ * @structure Responsive example
+ * @section Grid
+ * @markup
+ *  <div class="colored-grid">
+ *   <div class="acc-row">
+ *    <div class="col-half xs-full">One half</div>
+ *    <div class="col-half xs-full">One half</div>
+ *   </div>
+ *   <div class="acc-row">
+ *    <div class="col-third xs-half">One third</div>
+ *    <div class="col-third xs-half">One third</div>
+ *    <div class="col-third xs-full">One third</div>
+ *   </div>
+ *   <div class="acc-row">
+ *    <div class="col-auto xs-half">Auto width</div>
+ *    <div class="col-auto xs-half">Auto width</div>
+ *    <div class="col-auto xs-full">Auto width</div>
+ *    <div class="col-auto md-third xs-full">Auto width</div>
+ *    <div class="col-auto md-half xs-half">Auto width</div>
+ *    <div class="col-auto sm-full xs-full">Auto width</div>
+ *   </div>
+ * </div>
+ */
+@media (max-width: 37.4375em) {
+  .acc-row .xs-full {
+    max-width: 98.5%; }
+  .acc-row .xs-half {
+    max-width: 48.5%; }
+  .acc-row .xs-third {
+    max-width: 31.83333%; }
+  .acc-row .xs-1 {
+    max-width: 6.83333%; }
+  .acc-row .xs-2 {
+    max-width: 15.16667%; }
+  .acc-row .xs-3 {
+    max-width: 23.5%; }
+  .acc-row .xs-4 {
+    max-width: 31.83333%; }
+  .acc-row .xs-5 {
+    max-width: 40.16667%; }
+  .acc-row .xs-6 {
+    max-width: 48.5%; }
+  .acc-row .xs-7 {
+    max-width: 56.83333%; }
+  .acc-row .xs-8 {
+    max-width: 65.16667%; }
+  .acc-row .xs-9 {
+    max-width: 73.5%; }
+  .acc-row .xs-10 {
+    max-width: 81.83333%; }
+  .acc-row .xs-11 {
+    max-width: 90.16667%; }
+  .acc-row .xs-12 {
+    max-width: 98.5%; } }
+
+@media (min-width: 37.4376em) {
+  .acc-row .sm-full {
+    max-width: 98.5%; }
+  .acc-row .sm-half {
+    max-width: 48.5%; }
+  .acc-row .sm-third {
+    max-width: 31.83333%; }
+  .acc-row .sm-1 {
+    max-width: 6.83333%; }
+  .acc-row .sm-2 {
+    max-width: 15.16667%; }
+  .acc-row .sm-3 {
+    max-width: 23.5%; }
+  .acc-row .sm-4 {
+    max-width: 31.83333%; }
+  .acc-row .sm-5 {
+    max-width: 40.16667%; }
+  .acc-row .sm-6 {
+    max-width: 48.5%; }
+  .acc-row .sm-7 {
+    max-width: 56.83333%; }
+  .acc-row .sm-8 {
+    max-width: 65.16667%; }
+  .acc-row .sm-9 {
+    max-width: 73.5%; }
+  .acc-row .sm-10 {
+    max-width: 81.83333%; }
+  .acc-row .sm-11 {
+    max-width: 90.16667%; }
+  .acc-row .sm-12 {
+    max-width: 98.5%; } }
+
+@media (min-width: 56.25em) {
+  .acc-row .md-full {
+    max-width: 98.5%; }
+  .acc-row .md-half {
+    max-width: 48.5%; }
+  .acc-row .md-third {
+    max-width: 31.83333%; }
+  .acc-row .md-1 {
+    max-width: 6.83333%; }
+  .acc-row .md-2 {
+    max-width: 15.16667%; }
+  .acc-row .md-3 {
+    max-width: 23.5%; }
+  .acc-row .md-4 {
+    max-width: 31.83333%; }
+  .acc-row .md-5 {
+    max-width: 40.16667%; }
+  .acc-row .md-6 {
+    max-width: 48.5%; }
+  .acc-row .md-7 {
+    max-width: 56.83333%; }
+  .acc-row .md-8 {
+    max-width: 65.16667%; }
+  .acc-row .md-9 {
+    max-width: 73.5%; }
+  .acc-row .md-10 {
+    max-width: 81.83333%; }
+  .acc-row .md-11 {
+    max-width: 90.16667%; }
+  .acc-row .md-12 {
+    max-width: 98.5%; } }
+
+@media (min-width: 75em) {
+  .acc-row .lg-full {
+    max-width: 98.5%; }
+  .acc-row .lg-half {
+    max-width: 48.5%; }
+  .acc-row .lg-third {
+    max-width: 31.83333%; }
+  .acc-row .lg-1 {
+    max-width: 6.83333%; }
+  .acc-row .lg-2 {
+    max-width: 15.16667%; }
+  .acc-row .lg-3 {
+    max-width: 23.5%; }
+  .acc-row .lg-4 {
+    max-width: 31.83333%; }
+  .acc-row .lg-5 {
+    max-width: 40.16667%; }
+  .acc-row .lg-6 {
+    max-width: 48.5%; }
+  .acc-row .lg-7 {
+    max-width: 56.83333%; }
+  .acc-row .lg-8 {
+    max-width: 65.16667%; }
+  .acc-row .lg-9 {
+    max-width: 73.5%; }
+  .acc-row .lg-10 {
+    max-width: 81.83333%; }
+  .acc-row .lg-11 {
+    max-width: 90.16667%; }
+  .acc-row .lg-12 {
+    max-width: 98.5%; } }
+
+/*
+	//Gutter
+	.col-push-left-1 {
+		@include grid-push(left, 1 of 12);
+	}
+
+	.col-push-left-2 {
+		@include grid-push(left, 2 of 12);
+	}
+
+	.col-push-left-3 {
+		@include grid-push(left, 3 of 12);
+	}
+
+	.col-push-left-4 {
+		@include grid-push(left, 4 of 12);
+	}
+
+	.col-push-left-5 {
+		@include grid-push(left, 5 of 12);
+	}
+
+	.col-push-left-6 {
+		@include grid-push(left, 6 of 12);
+	}
+
+	.col-push-left-7 {
+		@include grid-push(left, 7 of 12);
+	}
+
+	.col-push-left-8 {
+		@include grid-push(left, 8 of 12);
+	}
+
+	.col-push-left-9 {
+		@include grid-push(left, 9 of 12);
+	}
+
+	.col-push-left-10 {
+		@include grid-push(left, 10 of 12);
+	}
+
+	.col-push-left-11 {
+		@include grid-push(left, 11 of 12);
+	}
+
+	.col-push-left-12 {
+		@include grid-push(left, 12 of 12);
+	}
+
+	.col-push-right-1 {
+		@include grid-push(right, 1 of 12);
+	}
+
+	.col-push-right-2 {
+		@include grid-push(right, 2 of 12);
+	}
+
+	.col-push-right-3 {
+		@include grid-push(right, 3 of 12);
+	}
+
+	.col-push-right-4 {
+		@include grid-push(right, 4 of 12);
+	}
+
+	.col-push-right-5 {
+		@include grid-push(right, 5 of 12);
+	}
+
+	.col-push-right-6 {
+		@include grid-push(right, 6 of 12);
+	}
+
+	.col-push-right-7 {
+		@include grid-push(right, 7 of 12);
+	}
+
+	.col-push-right-8 {
+		@include grid-push(right, 8 of 12);
+	}
+
+	.col-push-right-9 {
+		@include grid-push(right, 9 of 12);
+	}
+
+	.col-push-right-10 {
+		@include grid-push(right, 10 of 12);
+	}
+
+	.col-push-right-11 {
+		@include grid-push(right, 11 of 12);
+	}
+
+	.col-push-right-12 {
+		@include grid-push(right, 12 of 12);
+	}
+*/
+/* --- END GRID.CSS --- */
+/**
+ * needs documentation
+ * @structure Bouncing loader
+ * @section Loaders
+ * @markup
+ *  <div class="acc-bouncing-loader">
+ *     <div></div><div></div><div></div>
+ *  </div>
+*/
+/**
+ * needs documentation
+ * @structure Spinner
+ * @section Loaders
+ * @markup
+ *  <div class="acc-spinner"> 
+ *  </div>
+*/
+/* --- BEGIN LOADERS.CSS --- */
+.acc-spinner {
+  background-color: #888;
+  border-radius: 50%;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3) inset;
+  height: 20px;
+  left: 50%;
+  position: relative;
+  user-select: none;
+  color: transparent;
+  width: 20px; }
+  .acc-spinner:after {
+    animation: spin 1s linear infinite;
+    background-color: #ffffff;
+    border-radius: 50%;
+    content: '';
+    height: 4px;
+    left: 2.66667px;
+    position: absolute;
+    top: 8px;
+    transform-origin: 7.33333px;
+    width: 4px; }
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg); } }
+
+.acc-bouncing-loader {
+  display: -moz-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center; }
+  .acc-bouncing-loader > div {
+    animation: bouncing-loader 0.6s infinite alternate;
+    background: #888;
+    border-radius: 50%;
+    height: 1rem;
+    margin: 3rem 0.2rem;
+    width: 1rem; }
+    .acc-bouncing-loader > div:nth-of-type(2) {
+      animation-delay: 0.2s; }
+    .acc-bouncing-loader > div:nth-of-type(3) {
+      animation-delay: 0.4s; }
+
+@keyframes bouncing-loader {
+  from {
+    opacity: 1;
+    transform: translateY(0); }
+  to {
+    opacity: 0.1;
+    transform: translateY(-1rem); } }
+
+/* --- END LOADERS.CSS --- */
+/**
+ * Default modal design. Make sure to add the markup right before the </body> tag ends.
+ * @structure Modal
+ * @section Modal
+ * @markup
+ *  <div class="acc-modal"> 
+ *   Check it
+ *   <input class="modal-open" id="modal-one" type="checkbox">
+ *   <div class="modal-wrap" aria-hidden="true" role="dialog">
+ *    <label class="modal-overlay" for="modal-one"></label>
+ *    <div class="modal-dialog">
+ *     <div class="modal-header"> 
+ *      <h2>Modal in CSS?</h2>
+ *       <label class="is-button cancel" for="modal-one" aria-hidden="true">×</label>
+ *     </div>
+ *     <div class="modal-body">
+ *      <p>One modal example here</p>
+ *     </div>
+ *     <div class="modal-footer">
+ *      <label class="is-button primary" for="modal-one">okay</label>
+ *     </div>      
+ *    </div>
+ *   </div>
+ *  </div>
+*/
+/* --- BEGIN MODAL.CSS --- */
+.acc-modal .modal-overlay {
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100001; }
+
+.acc-modal .modal-exit {
+  font-size: 25px;
+  font-size: 2.5rem;
+  -webkit-font-smoothing: subpixel-antialiased;
+  line-height: 1.5;
+  position: absolute;
+  right: 15px;
+  top: 5px; }
+
+.acc-modal .modal-open:checked ~ .modal-wrap:before,
+.acc-modal .modal-open:checked ~ .modal-wrap .modal-overlay {
+  display: block; }
+
+.acc-modal .modal-open:checked ~ .modal-wrap .modal-dialog {
+  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 40%; }
+
+.acc-modal .modal-dialog {
+  background: #ffffff;
+  border: #cccccc solid 1px;
+  border-radius: 0;
+  position: fixed;
+  left: 50%;
+  top: -100%;
+  transform: translate(-50%, -150%);
+  transition: transform .6s ease-in-out;
+  width: 80%;
+  max-width: 600px;
+  z-index: 100002; }
+
+.acc-modal .modal-body {
+  padding: 20px; }
+
+.acc-modal .modal-header {
+  position: relative;
+  padding: 20px 55px 20px 20px;
+  border-bottom: #cccccc solid 1px; }
+  .acc-modal .modal-header > label {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 29px;
+    border: 1px solid #646464;
+    color: #646464;
+    height: 30px;
+    line-height: 1;
+    width: 30px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    min-width: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 0; }
+    .acc-modal .modal-header > label:hover {
+      border-color: #000000;
+      color: #000000; }
+
+.acc-modal .modal-footer {
+  border-top: #cccccc solid 1px;
+  text-align: right;
+  padding: 20px 20px; }
+
+/* --- END MODAL.CSS --- */
+/**
+ * Default table design
+ * @structure Default table
+ * @section Table
+ * @markup
+*  <table class="acc-default-table">
+*   <thead>	                                 
+*    <tr>
+*     <th>table heading</th>
+*     <th>table heading</th>                    
+*     <th>table heading</th>                   
+*     <th>table heading</th>
+*     <th>table heading</th>
+*    </tr>
+*   </thead>
+*   <tbody>	                 
+*    <tr>	                                   
+*     <td>table cell</td>                  
+*     <td>table cell</td>
+*     <td>table cell</td>
+*     <td>table cell</td>                   
+*     <td>table cell</td>                 
+*    </tr>
+*    <tr>	                                   
+*     <td>table cell</td>                  
+*     <td>table cell</td>
+*     <td>table cell</td>
+*     <td>table cell</td>                   
+*     <td>table cell</td>                 
+*    </tr>
+*    <tr>	                                   
+*     <td>table cell</td>                  
+*     <td>table cell</td>
+*     <td>table cell</td>
+*     <td>table cell</td>                   
+*     <td>table cell</td>                 
+*    </tr>
+*   </tbody>
+*  </table>
+*/
+/**
+ * Minimal table design
+ * @structure Minimal table
+ * @section Table
+ * @markup
+*  <table class="acc-minimal-table">
+*   <thead>	                                 
+*    <tr>
+*     <th>table heading</th>
+*     <th>table heading</th>                    
+*     <th>table heading</th>                   
+*     <th>table heading</th>
+*     <th>table heading</th>
+*    </tr>
+*   </thead>
+*   <tbody>	                 
+*    <tr>	                                   
+*     <td>table cell</td>                  
+*     <td>table cell</td>
+*     <td>table cell</td>
+*     <td>table cell</td>                   
+*     <td>table cell</td>                 
+*    </tr>
+*    <tr>	                                   
+*     <td>table cell</td>                  
+*     <td>table cell</td>
+*     <td>table cell</td>
+*     <td>table cell</td>                   
+*     <td>table cell</td>                 
+*    </tr>
+*    <tr>	                                   
+*     <td>table cell</td>                  
+*     <td>table cell</td>
+*     <td>table cell</td>
+*     <td>table cell</td>                   
+*     <td>table cell</td>                 
+*    </tr>
+*   </tbody>
+*  </table>
+*/
+/* --- BEGIN TABLE.CSS --- */
+.acc-default-table {
+  border: 1px solid #ccc;
+  min-width: 50%;
+  padding: 5px;
+  text-align: left;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #4a4a4a; }
+  .acc-default-table td,
+  .acc-default-table th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border: 1px solid #ddd; }
+
+.acc-minimal-table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: #4a4a4a; }
+  .acc-minimal-table thead tr th {
+    padding: 10px; }
+  .acc-minimal-table tbody tr td {
+    padding: 5px 10px; }
+
+/* --- END TABLE.CSS --- */
+/* --- BEGIN PROJECT.CSS --- */
+/* --- BEGIN PROJECT-HEADER.CSS --- */
+.acc-main-header {
+  display: -moz-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  background-color: #2274a5;
+  height: 72px;
+  color: #ffffff;
+  box-shadow: 4px 3px 5px #cccccc; }
+  .acc-main-header a {
+    color: #ffffff;
+    text-decoration: none; }
+    .acc-main-header a:hover {
+      color: #cccccc; }
+  .acc-main-header .acc-logo {
+    -webkit-box-flex: 0 0 15%;
+    -moz-box-flex: 0 0 15%;
+    -webkit-flex: 0 0 15%;
+    -ms-flex: 0 0 15%;
+    flex: 0 0 15%;
+    display: -moz-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex; }
+    .acc-main-header .acc-logo > a {
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      -ms-align-self: center;
+      align-self: center;
+      padding: 0 15px;
+      text-transform: uppercase;
+      font-size: 17px;
+      font-size: 1.7rem;
+      -webkit-font-smoothing: subpixel-antialiased;
+      line-height: 1.34; }
+  .acc-main-header .acc-main-nav {
+    -webkit-box-flex: 0 0 85%;
+    -moz-box-flex: 0 0 85%;
+    -webkit-flex: 0 0 85%;
+    -ms-flex: 0 0 85%;
+    flex: 0 0 85%; }
+    .acc-main-header .acc-main-nav ul {
+      display: inline-flex; }
+      .acc-main-header .acc-main-nav ul li {
+        -webkit-align-self: center;
+        -moz-align-self: center;
+        -ms-align-self: center;
+        align-self: center;
+        display: inline-block;
+        padding: 0 15px; }
+        .acc-main-header .acc-main-nav ul li a {
+          text-transform: uppercase;
+          font-size: 17px;
+          font-size: 1.7rem;
+          -webkit-font-smoothing: subpixel-antialiased;
+          line-height: 1.34;
+          letter-spacing: 1px; }
+    .acc-main-header .acc-main-nav.to-right {
+      display: inline-flex;
+      -ms-flex-pack: flex-end;
+      -webkit-justify-content: flex-end;
+      -moz-justify-content: flex-end;
+      -ms-justify-content: flex-end;
+      justify-content: flex-end;
+      align-self: center; }
+  .acc-main-header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10009; }
+    .acc-main-header.sticky*:nth-child(2) {
+      margin-top: 100px; }
+
+/* --- BEGIN PROJECT-HEADER.CSS --- */
+.acc-default-container {
+  position: relative;
+  max-width: 1580px;
+  margin: 130px auto;
+  min-height: 50vh;
+  border: 1px solid rgba(204, 204, 204, 0.129412);
+  box-shadow: 0 1px 1px #cccccc;
+  padding: 2em 2.5em; }
+  .acc-default-container h1 {
+    text-align: center; }
+  .acc-default-container .acc-form-inline {
+    margin: 0 10px; }
+    .acc-default-container .acc-form-inline label {
+      min-width: 200px; }
+  .acc-default-container.half {
+    max-width: 50%; }
+
+.acc-form-container {
+  display: -moz-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 30px auto; }
+
+/* --- BEGIN PROJECT.CSS --- */
+/* --- BEGIN TEMP.CSS --- */
+.acc-inline-wrap > * {
+  display: inline-block; }
+
+.back {
+  position: absolute;
+  right: 2.5em;
+  top: 1em;
+  min-width: 0;
+  font-weight: bolder !important; }
+
+.flexible {
+  display: -moz-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  .flexible .acc-bottom-align {
+    margin-top: auto; }
+  .flexible.centered {
+    align-items: center; }
+  .flexible .acc-center-align {
+    display: -moz-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    margin: auto; }
+    .flexible .acc-center-align .cancel {
+      min-width: 200px; }
+
+.todo .block-with-text {
+  overflow: hidden;
+  position: relative;
+  line-height: 1.2em;
+  max-height: 3.6em;
+  text-align: justify;
+  margin-right: -1em;
+  padding-right: 1em; }
+
+.todo .block-with-text:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0; }
+
+.todo .block-with-text:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: white; }
+
+.acc-spacer {
+  height: 1px;
+  width: 100%;
+  margin: 10px 0; }
+
+*::-webkit-scrollbar {
+  width: 12px;
+  background-color: #f5f5f5; }
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #ccc; }
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  background-color: #f5f5f5; }
+
+/* --- END TEMP.CSS --- */
